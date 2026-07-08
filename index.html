@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ecoliving suyapa · Coliving frente a la UNAH — Tegucigalpa</title>
+<meta name="description" content="Coliving eco frente a la UNAH, Boulevard Suyapa. Habitación privada amoblada, todo incluido: gimnasio, rooftop, coworking y más. Preventa abierta — agendá tu visita.">
+<meta name="theme-color" content="#123329">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ecoliving suyapa · Vivir simple, conectado y eco">
+<meta property="og:description" content="Coliving frente a la UNAH, Boulevard Suyapa. Todo incluido en una sola cuota. Preventa abierta.">
+<meta property="og:image" content="assets/img/portada.webp">
+<meta property="og:locale" content="es_HN">
+
+<link rel="icon" href="assets/logo-emerald.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/img/portada.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=11">
+
+<!-- ===================== ANALYTICS / RETARGETING =====================
+     Reemplazá los IDs placeholder por los reales antes de publicar.
+     Sin esto no podés medir conversiones ni hacer retargeting de ads. -->
+
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX'); /* TODO: ID de GA4 */
+</script>
+
+<!-- Meta (Facebook/Instagram) Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'XXXXXXXXXXXXXXX'); /* TODO: ID del Meta Pixel */
+  fbq('track', 'PageView');
+</script>
+<!-- ===================== FIN ANALYTICS ===================== -->
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="site-header" id="top">
+  <div class="nav">
+    <a href="#top" class="brand" aria-label="ecoliving suyapa — inicio">
+      <img src="assets/logo-full.svg" alt="ecoliving suyapa" class="brand-logo">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="#espacios">Espacios</a>
+      <a href="#amenidades">Amenidades</a>
+      <a href="#galeria">Galería</a>
+      <a href="#distribuciones">Distribuciones</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#faq">FAQ</a>
+      <a href="#hero-form" class="btn btn--ink">Agendá tu visita</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+  <a href="#espacios">Espacios</a>
+  <a href="#amenidades">Amenidades</a>
+  <a href="#galeria">Galería</a>
+  <a href="#distribuciones">Distribuciones</a>
+  <a href="#ubicacion">Ubicación</a>
+  <a href="#faq">FAQ</a>
+  <a href="#hero-form" class="btn">Agendá tu visita</a>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<div class="hero-wrap">
+  <section class="hero" id="hero" aria-label="Presentación">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width:980px)" srcset="assets/img/portada-mobile.webp">
+        <img src="assets/img/portada.webp" width="2400" height="1549" fetchpriority="high" decoding="async"
+             alt="Torre ecoliving suyapa — el edificio con la ciudad de Tegucigalpa y las montañas al fondo">
+      </picture>
+    </div>
+    <div class="hero__scrim"></div>
+
+    <div class="hero__inner">
+      <div class="hero__headline">
+        <h1>Un <b>nuevo</b><br>estilo de <b>vivir</b></h1>
+      </div>
+
+      <form class="hero__form" id="hero-form" novalidate>
+        <div data-form-fields>
+          <div class="form-title">Reservá tu lugar</div>
+          <div style="font-size:13px;color:rgba(18,51,41,.6);margin-top:-2px;line-height:1.4">Recibí precios, planos y planes de pago. Respuesta en menos de 24 h.</div>
+          <div class="field" style="margin-top:12px">
+            <label for="f-nombre">Nombre</label>
+            <input id="f-nombre" name="nombre" type="text" required placeholder="Tu nombre" autocomplete="name">
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label for="f-tel">Teléfono / WhatsApp</label>
+            <input id="f-tel" name="telefono" type="tel" required placeholder="+504 9999-9999" autocomplete="tel">
+          </div>
+          <div class="field" style="margin-top:12px">
+            <label for="f-correo">Correo</label>
+            <input id="f-correo" name="correo" type="email" required placeholder="vos@correo.com" autocomplete="email">
+          </div>
+          <div class="field" style="margin-top:12px">
+            <span class="lbl" id="interes-lbl">Me interesa</span>
+            <div class="seg" role="group" aria-labelledby="interes-lbl">
+              <button type="button" class="seg__btn" data-interest="vivir" aria-pressed="true">Vivir aquí</button>
+              <button type="button" class="seg__btn" data-interest="invertir" aria-pressed="false">Invertir</button>
+            </div>
+          </div>
+          <input type="hidden" name="interes" id="f-interes" value="vivir">
+          <button type="submit" class="form-submit" style="margin-top:14px;width:100%">Agendá tu visita</button>
+        </div>
+
+        <div class="form-success" data-form-success hidden>
+          <img src="assets/logo-emerald.svg" alt="">
+          <div class="t">¡Listo! Ya sos parte.</div>
+          <p>Recibimos tus datos. Te contactamos muy pronto para agendar tu visita.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <a href="#hero-form" class="spin-badge" aria-label="Agendá tu visita">
+    <span class="disc"></span>
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <defs><path id="circ" d="M 50,50 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"></path></defs>
+      <text style="font-size:8.6px;font-weight:700;letter-spacing:.47em;fill:#B2E67B"><textPath href="#circ" startOffset="0">AGENDÁ TU VISITA AHORA ·</textPath></text>
+    </svg>
+    <span class="mark"><img src="assets/logo-lime.svg" alt=""></span>
+  </a>
+</div>
+
+<!-- ===================== ESPACIOS ===================== -->
+<section class="section section--espacios" id="espacios" aria-labelledby="espacios-h">
+  <div class="head-row reveal">
+    <h2 class="h2" id="espacios-h" style="max-width:520px">Espacios pensados <br>para vos</h2>
+    <a href="#hero-form" class="btn btn--green">Reservá en preventa <span class="arrow">→</span></a>
+  </div>
+  <div class="grid-auto">
+    <!-- Habitación (real render) -->
+    <article class="space-card reveal">
+      <div class="thumb"><div class="render"><img src="assets/img/habitacion-2.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Habitación privada amoblada con ventanal de piso a techo"></div></div>
+      <div class="body">
+        <div class="row"><div class="name">Habitación privada</div><div class="tag">Preventa</div></div>
+        <div class="meta">Amoblada · Servicios incluidos · m² por anunciar</div>
+      </div>
+    </article>
+
+    <article class="space-card reveal d1">
+      <div class="thumb">
+        <div class="render"><img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop con terraza de madera, mobiliario y vista a la ciudad"></div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="name">Rooftop</div><div class="tag">Incluido</div></div>
+        <div class="meta">Vistas de la ciudad · Eventos y convivencia</div>
+      </div>
+    </article>
+
+    <article class="space-card reveal d2">
+      <div class="thumb">
+        <div class="render"><img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking y sala de estudio con escritorios de madera y luz natural"></div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="name">Coworking y estudio</div><div class="tag">Incluido</div></div>
+        <div class="meta">WiFi de alta velocidad · Sala de estudio</div>
+      </div>
+    </article>
+
+    <article class="space-card reveal d3">
+      <div class="thumb">
+        <div class="render"><img src="assets/img/lounge.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del lounge y cafetería con sofás cómodos y barra de café"></div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="name">Lounge y cafetería</div><div class="tag">Incluido</div></div>
+        <div class="meta">Tu sala de estar compartida · Café a pasos</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== AMENIDADES / MOSAICO ===================== -->
+<section class="section" id="amenidades" aria-labelledby="amen-h">
+  <div class="head-row head-row--top reveal">
+    <h2 class="h2" id="amen-h" style="max-width:460px;line-height:1.12">Vivir simple,<br>conectado y eco</h2>
+    <div style="max-width:400px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+      <p class="lead">Todo incluido en una sola cuota: gimnasio, rooftop, coworking, lounge y más. Con medición individual de energía, pagás lo que consumís — y sabés cuánto es.</p>
+      <a href="#hero-form" class="btn btn--ink" style="letter-spacing:.04em">AGENDÁ TU VISITA <span>→</span></a>
+    </div>
+  </div>
+  <div class="mosaic">
+    <div class="tile reveal">
+      <div class="render"><img src="assets/img/gym.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del gimnasio equipado con máquinas modernas y luz natural"></div>
+    </div>
+    <div class="tile reveal d1">
+      <div class="render"><img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop al atardecer con vista a Tegucigalpa"></div>
+    </div>
+    <div class="amen-card reveal d2">
+      <div>
+        <div class="big">+12</div>
+        <div class="sub">amenidades incluidas</div>
+      </div>
+      <div class="chips">
+        <span class="chip">Gimnasio</span><span class="chip">Lavandería</span><span class="chip">Cafetería</span>
+        <span class="chip">Lounge</span><span class="chip">Sala de estudio</span><span class="chip">Eventos</span>
+        <span class="chip">Seguridad 24/7</span><span class="chip">Áreas verdes</span><span class="chip">WiFi</span>
+        <span class="chip">Medición de energía</span>
+      </div>
+    </div>
+    <div class="tile reveal d3">
+      <div class="render"><img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking con escritorios compartidos"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA ===================== -->
+<section class="section" id="galeria" aria-labelledby="gal-h">
+  <div class="head-row head-row--end reveal">
+    <h2 class="h2" id="gal-h" style="max-width:520px">Conocé las <br>instalaciones</h2>
+    <p class="lead" style="max-width:380px">Un recorrido por los espacios del proyecto. Renders oficiales — fotos reales muy pronto.</p>
+  </div>
+  <div class="g-wide reveal">
+    <button type="button" class="g-open" data-src="assets/img/fachada.webp" data-caption="El edificio" aria-label="Ampliar imagen: El edificio">
+      <img src="assets/img/fachada.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render panorámico de la fachada del edificio ecoliving suyapa con jardines verticales">
+      <span class="caption caption--lg">El edificio</span>
+    </button>
+  </div>
+  <div class="carousel reveal d1">
+    <div class="carousel-viewport" id="galCarousel">
+      <div class="carousel-track">
+        <button type="button" class="g-slide g-open" data-src="assets/img/habitacion-1.webp" data-caption="Habitación" aria-label="Ampliar imagen: Habitación">
+          <img src="assets/img/habitacion-1.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Render de habitación con ventanal y vista a la ciudad">
+          <span class="caption">Habitación</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/rooftop.webp" data-caption="Rooftop" aria-label="Ampliar imagen: Rooftop">
+          <img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop">
+          <span class="caption">Rooftop</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/lounge.webp" data-caption="Lounge y cafetería" aria-label="Ampliar imagen: Lounge y cafetería">
+          <img src="assets/img/lounge.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del lounge y cafetería">
+          <span class="caption">Lounge y cafetería</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/gym.webp" data-caption="Gimnasio" aria-label="Ampliar imagen: Gimnasio">
+          <img src="assets/img/gym.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del gimnasio">
+          <span class="caption">Gimnasio</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/verdes.webp" data-caption="Áreas verdes" aria-label="Ampliar imagen: Áreas verdes">
+          <img src="assets/img/verdes.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render de las áreas verdes con jardines y vegetación">
+          <span class="caption">Áreas verdes</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/coworking.webp" data-caption="Coworking y estudio" aria-label="Ampliar imagen: Coworking y estudio">
+          <img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking y sala de estudio">
+          <span class="caption">Coworking y estudio</span>
+        </button>
+      </div>
+    </div>
+    <button type="button" class="car-btn car-prev" aria-label="Foto anterior">‹</button>
+    <button type="button" class="car-btn car-next" aria-label="Foto siguiente">›</button>
+  </div>
+  <p class="car-hint">Deslizá para ver más →</p>
+</section>
+
+<!-- ===================== DISTRIBUCIONES (sección verde) ===================== -->
+<section class="section units-sec" id="distribuciones" aria-labelledby="dist-h">
+  <div class="units-band reveal">
+    <div class="units-figs">
+      <div class="ufig"><b>1</b><span>Nivel de amenidades</span></div>
+      <div class="ufig"><b>19</b><span>Niveles de apartamentos</span></div>
+      <div class="ufig"><b>4</b><span>Niveles de estacionamientos</span></div>
+    </div>
+
+    <div class="units-head">
+      <div class="kicker eyebrow">Distribuciones</div>
+      <h2 class="h2" id="dist-h">Encontrá tu espacio</h2>
+      <p class="lead">Desde un monoambiente hasta el coliving de 7 habitaciones — para vivir o invertir.</p>
+    </div>
+
+    <div class="units-grid">
+      <article class="unit reveal">
+        <div class="unit__plan"><img src="assets/img/plan-mono.webp" width="900" height="1200" loading="lazy" decoding="async" alt="Plano del monoambiente de 30 m2"></div>
+        <div class="unit__body">
+          <div class="unit__row"><span class="unit__name">Monoambiente</span><span class="unit__m2">30 m&sup2;</span></div>
+          <div class="unit__price">Desde <b>$74,900</b></div>
+          <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-mono">M&aacute;s info</a>
+        </div>
+      </article>
+      <article class="unit reveal d1">
+        <div class="unit__plan"><img src="assets/img/plan-2hab.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Plano de apartamento de 2 habitaciones de 58 m2"></div>
+        <div class="unit__body">
+          <div class="unit__row"><span class="unit__name">2 habitaciones</span><span class="unit__m2">58 m&sup2;</span></div>
+          <div class="unit__price">Desde <b>$134,900</b></div>
+          <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-2hab">M&aacute;s info</a>
+        </div>
+      </article>
+      <article class="unit reveal d2">
+        <div class="unit__plan"><img src="assets/img/plan-coliving.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Plano del coliving de 7 habitaciones"></div>
+        <div class="unit__body">
+          <div class="unit__row"><span class="unit__name">Coliving &middot; 7 hab</span><span class="unit__m2">Consult&aacute;</span></div>
+          <div class="unit__price">Precio especial de preventa</div>
+          <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-coliving">M&aacute;s info</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="units-note">Precios de preventa &mdash; v&aacute;lidos hasta el 30 de julio de 2026. Consult&aacute; disponibilidad y precio por nivel.</p>
+  </div>
+</section>
+
+<!-- ===================== POR QUÉ ===================== -->
+<section class="section" aria-labelledby="why-h">
+  <div class="why-card reveal">
+    <div class="media">
+      <div class="render"><img src="assets/img/comun.webp" width="928" height="1152" loading="lazy" decoding="async" alt="Render de las áreas comunes con gente conviviendo en un espacio abierto y luminoso"></div>
+    </div>
+    <div class="content">
+      <h2 class="h2" id="why-h" style="font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:8px">Uno y muchos a la vez</h2>
+      <p class="lead" style="margin-bottom:28px;max-width:480px;font-size:14.5px;line-height:1.6">Cada persona es un pétalo; juntos formamos la flor. No se trata de vivir cerca, sino de vivir conectado.</p>
+      <div class="why-grid">
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Frente a la UNAH</div><div class="d">La mejor ubicación del Boulevard Suyapa. Todo a un paso, sin transporte.</div></div></div>
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Comunidad real</div><div class="d">Coliving de verdad, no roommates al azar. Tu espacio, tu gente.</div></div></div>
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Todo incluido</div><div class="d">Una sola cuota mensual. Sin recibos aparte, sin sorpresas.</div></div></div>
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Enfoque eco</div><div class="d">Medición individual de energía y áreas verdes. Sostenible en serio.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAGLINES ===================== -->
+<section class="band" aria-label="Filosofía">
+  <div class="band__inner reveal">
+    <svg class="band__shapes" viewBox="0 0 1707 249" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path fill="#B2E67B" d="M853,-4 C912,55 1000,150 1119,253 L1390,253 C1362,150 1305,55 1283,-4 Z"/>
+      <path fill="#B2E67B" d="M1404,-4 C1448,60 1476,120 1512,158 C1544,192 1566,214 1590,214 C1616,214 1648,190 1662,168 C1684,132 1673,60 1671,30 C1669,12 1666,-4 1663,-4 Z"/>
+      <path fill="#B2E67B" d="M676,253 C676,225 708,214 766,214 C822,214 852,228 852,253 Z"/>
+    </svg>
+    <div class="band__content">
+      <h2 class="band__title">Un <b>nuevo</b><br><b>estilo</b> de vivir</h2>
+      <div class="band__pills">
+        <span class="band__pill">Habitá</span>
+        <span class="band__pill">Compartí</span>
+        <span class="band__pill">Conectá</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBICACIÓN ===================== -->
+<section class="section loc" id="ubicacion" aria-labelledby="loc-h">
+  <div class="col-text reveal">
+    <h2 class="h2" id="loc-h" style="margin-bottom:14px">Frente a la UNAH.<br>Literalmente.</h2>
+    <p class="lead" style="font-size:15px;margin-bottom:24px;max-width:440px">Boulevard Suyapa, Tegucigalpa. Todo a un paso, sin transporte: cruzás la calle y llegaste.</p>
+    <div class="dist-list">
+      <div class="dist"><span class="place">UNAH — entrada principal</span><span class="time">Cruzando la calle</span></div>
+      <div class="dist"><span class="place">Boulevard Suyapa</span><span class="time">Estás en él</span></div>
+      <div class="dist"><span class="place">Mall Multiplaza</span><span class="time">5 min</span></div>
+      <div class="dist"><span class="place">Hospital Escuela</span><span class="time">5 min</span></div>
+    </div>
+  </div>
+  <div class="col-map reveal d1">
+    <a class="map-link" href="https://www.google.com/maps?q=Universidad+Nacional+Aut%C3%B3noma+de+Honduras,+Boulevard+Suyapa,+Tegucigalpa" target="_blank" rel="noopener" aria-label="Ver ubicación en Google Maps">
+      <svg viewBox="0 0 640 430" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <rect width="640" height="430" fill="#E3EEDE"></rect>
+        <rect x="40" y="250" width="150" height="150" rx="10" fill="#CFE6C4"></rect>
+        <rect x="470" y="30" width="140" height="120" rx="10" fill="#CFE6C4"></rect>
+        <rect x="360" y="270" width="120" height="120" rx="10" fill="#D7EAD0"></rect>
+        <rect x="220" y="40" width="90" height="70" rx="6" fill="#F1F6EE"></rect>
+        <rect x="330" y="40" width="120" height="70" rx="6" fill="#F1F6EE"></rect>
+        <rect x="40" y="40" width="150" height="80" rx="6" fill="#F1F6EE"></rect>
+        <rect x="220" y="300" width="110" height="90" rx="6" fill="#F1F6EE"></rect>
+        <rect x="0" y="150" width="640" height="34" fill="#ffffff"></rect>
+        <rect x="0" y="200" width="640" height="14" fill="#F4F8F1"></rect>
+        <line x1="0" y1="167" x2="640" y2="167" stroke="#C9DCC1" stroke-width="3" stroke-dasharray="18 14"></line>
+        <rect x="196" y="0" width="26" height="430" fill="#ffffff"></rect>
+        <line x1="209" y1="0" x2="209" y2="430" stroke="#C9DCC1" stroke-width="3" stroke-dasharray="18 14"></line>
+        <rect x="440" y="0" width="16" height="430" fill="#F4F8F1"></rect>
+        <text x="330" y="145" fill="#8AA57E" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" letter-spacing="1">BOULEVARD SUYAPA</text>
+        <rect x="300" y="215" width="300" height="180" rx="12" fill="#C4E0B5"></rect>
+        <text x="320" y="245" fill="#4E7A3C" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="800">UNAH</text>
+        <text x="320" y="265" fill="#6F9A5E" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600">Ciudad Universitaria</text>
+      </svg>
+      <div class="map-pin">
+        <div class="tip">ecoliving suyapa</div>
+        <div class="drop"><i></i></div>
+      </div>
+      <div class="map-cta">Ver en Google Maps <span class="up">↗</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIOS ===================== -->
+<section class="section" aria-labelledby="tst-h" style="padding-top:40px">
+  <div class="sec-head reveal">
+    <div class="kicker eyebrow">Prueba social</div>
+    <h2 class="h2" id="tst-h">Ya son parte de la comunidad</h2>
+  </div>
+  <div class="social-count reveal">
+    <span class="avs"><span class="av av--img"><img src="assets/img/avatar-1.webp" alt="" width="34" height="34" loading="lazy"></span><span class="av av--img"><img src="assets/img/avatar-2.webp" alt="" width="34" height="34" loading="lazy"></span><span class="av av--img"><img src="assets/img/avatar-3.webp" alt="" width="34" height="34" loading="lazy"></span><span class="av av--more">+</span></span>
+    <span><b>[+120] personas</b> ya agendaron su visita en las últimas semanas</span>
+  </div>
+  <div class="tgrid">
+    <article class="tcard reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Vivir frente a la UNAH sin depender de buses me cambió la rutina. La cuota única es lo mejor — pago una vez y ya."</p>
+      <div class="who"><span class="av av--img"><img src="assets/img/avatar-1.webp" alt="" width="42" height="42" loading="lazy"></span><div><b>Andrea Zelaya</b><span>Estudiante · UNAH</span></div></div>
+    </article>
+    <article class="tcard reveal d1">
+      <div class="stars">★★★★★</div>
+      <p>"Como inversión tenía sentido desde el número uno: demanda asegurada y el plan de pagos me calzó perfecto. El equipo respondió todo por WhatsApp."</p>
+      <div class="who"><span class="av av--img"><img src="assets/img/avatar-2.webp" alt="" width="42" height="42" loading="lazy"></span><div><b>Marco Discua</b><span>Inversionista</span></div></div>
+    </article>
+    <article class="tcard reveal d2">
+      <div class="stars">★★★★★</div>
+      <p>"La comunidad es real, no roommates al azar. El rooftop y el coworking los uso todos los días. Me siento en casa."</p>
+      <div class="who"><span class="av av--img"><img src="assets/img/avatar-3.webp" alt="" width="42" height="42" loading="lazy"></span><div><b>José Padilla</b><span>Joven profesional</span></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="faq" aria-labelledby="faq-h" style="padding:60px 20px 70px">
+  <h2 class="h2 reveal" id="faq-h" style="font-size:clamp(26px,3.4vw,38px);text-align:center;margin-bottom:34px">Preguntas frecuentes</h2>
+  <div class="faq-wrap">
+    <div class="faq-media reveal">
+      <div class="render"><img src="assets/img/comunidad.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Comunidad de ecoliving suyapa compartiendo en el rooftop al atardecer"></div>
+    </div>
+    <div class="faq-list reveal d1" id="faqList">
+      <!-- FAQ items injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HABLEMOS / CONTACTO ===================== -->
+<footer class="contact-wrap">
+  <div class="contact reveal">
+    <!-- HABLEMOS + pastillas flotantes -->
+    <div class="hb">
+      <h2 class="hb__title">Hablemos</h2>
+      <div class="hb__pills">
+        <a class="hb__pill hb__pill--a" href="#hero-form">Reservá tu lugar</a>
+        <span class="hb__pill hb__pill--b">Preventa abierta</span>
+        <a class="hb__pill hb__pill--c" href="https://wa.me/50400000000?text=Hola%2C%20quiero%20info%20de%20ecoliving%20Suyapa" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+
+    <hr class="fb-rule">
+
+    <div class="fb-grid">
+      <div class="fb-brand2">
+        <img src="assets/logo-full-white.svg" alt="ecoliving suyapa" class="fb-logo">
+      </div>
+      <nav class="fb-col fb-social" aria-label="Redes sociales">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </nav>
+      <div class="fb-col fb-col--accent fb-contact">
+        <a href="https://wa.me/50400000000?text=Hola%2C%20quiero%20info%20de%20ecoliving%20Suyapa" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span>+504 0000-0000</span></a>
+        <a href="mailto:hola@ecolivingsuyapa.com"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 6 9-6"/></svg></span><span>hola@ecolivingsuyapa.com</span></a>
+        <span class="fb-loc"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Boulevard Suyapa · Frente a la UNAH</span></span>
+      </div>
+      <div class="fb-col fb-col--accent fb-tag">
+        <span>Habitá</span>
+        <span>Compartí</span>
+        <span>Conectá</span>
+      </div>
+    </div>
+
+    <div class="fb-legal">© Ecoliving Suyapa 2026 · Desarrollado por <a href="https://www.tenloo.com" target="_blank" rel="noopener">Tenloo Studio</a></div>
+  </div>
+</footer>
+
+<!-- ===================== WHATSAPP FLOTANTE ===================== -->
+<a class="wa-float" href="https://wa.me/50400000000?text=Hola%2C%20quiero%20info%20de%20ecoliving%20Suyapa" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 22c-1.8 0-3.5-.5-5-1.3l-.4-.2-4.9 1 1-4.8-.3-.4C5.5 18.4 5 16.7 5 15 5 8.9 9.9 4 16 4s11 4.9 11 11-4.9 10-11 10zm6-8.2c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7 0-1.9-.9-3.1-1.7-4.4-3.9-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1 2.2.9 3 1 4 .9.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+  WhatsApp
+</a>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de imágenes" hidden>
+  <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Imagen anterior">‹</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Imagen siguiente">›</button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script src="main.js?v=2"></script>
+</body>
+</html>
