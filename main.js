@@ -91,11 +91,12 @@
 
   /* ---------- FAQ accordion ---------- */
   var faqData = [
-    { q: '¿Dónde queda exactamente?', a: 'En el Boulevard Suyapa, Tegucigalpa, justo frente a la UNAH. Cruzás la calle y estás en la universidad — sin buses, sin taxis.' },
-    { q: '¿Qué incluye la cuota mensual?', a: 'Habitación privada amoblada, WiFi de alta velocidad, lavandería, seguridad 24/7 y acceso a todas las áreas comunes: gimnasio, rooftop, coworking, lounge y más. La energía se mide por consumo individual.' },
-    { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en construcción y en etapa de preventa. Dejanos tus datos y te compartimos el calendario de entrega y los planes de pago vigentes.' },
-    { q: '¿Puedo comprar para rentar?', a: 'Sí. El modelo de coliving frente a la UNAH tiene demanda constante de estudiantes y jóvenes profesionales — ideal para inversionistas. Te preparamos la información de retorno.' },
-    { q: '¿Cómo agendo una visita?', a: 'Llená el formulario de arriba o escribinos por WhatsApp. Te contactamos en menos de 24 horas para coordinar tu visita al showroom.' }
+    { q: '¿Dónde queda el proyecto?', a: 'En la zona de Suyapa, Boulevard Suyapa, Tegucigalpa — a pocos pasos de la UNAH. Agendá una visita y coordinamos el punto exacto.' },
+    { q: '¿Cuánto cuestan los apartamentos?', a: 'El precio de venta arranca en $3,000 por m². Un apartaestudio (23–33 m²) parte desde unos $69,000 y los apartamentos de 1 y 2 habitaciones (31–52 m²) desde unos $94,500. Reservás con $3,000 y una prima del 10%. El precio de renta lo confirmamos según disponibilidad.' },
+    { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en preventa: inicia en septiembre y la entrega estimada es en diciembre. Dejanos tus datos y te compartimos el calendario y los planes de pago vigentes.' },
+    { q: '¿El parqueo está incluido?', a: 'Sí. Cada apartamento incluye un parqueo.' },
+    { q: '¿Puedo comprar para rentar?', a: 'Sí. Es una zona universitaria con demanda constante de estudiantes y jóvenes profesionales, ideal para comprar y rentar. Te preparamos la información para inversionistas.' },
+    { q: '¿Cómo agendo una visita?', a: 'Llená el formulario de arriba o escribinos por WhatsApp al +504 9460-1511. La sala de ventas atiende de lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 12:00 m.' }
   ];
 
   var list = document.getElementById('faqList');
