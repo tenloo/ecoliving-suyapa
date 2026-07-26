@@ -15,11 +15,15 @@
 <meta property="og:locale" content="es_HN">
 
 <link rel="icon" href="assets/logo-emerald.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/portada.webp" fetchpriority="high">
+<!-- Preload del LCP con media query: evita que móvil descargue la imagen de
+     escritorio (208 KB) además de la suya (125 KB). Cada breakpoint precarga
+     únicamente la imagen que realmente va a mostrar. -->
+<link rel="preload" as="image" href="assets/img/portada.webp" media="(min-width:981px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/portada-mobile.webp" media="(max-width:980px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=13">
 
 <!-- ===================== ANALYTICS / RETARGETING =====================
      Reemplazá los IDs placeholder por los reales antes de publicar.
@@ -84,8 +88,8 @@
   <section class="hero" id="hero" aria-label="Presentación">
     <div class="hero__media">
       <picture>
-        <source media="(max-width:980px)" srcset="assets/img/portada-mobile.webp">
-        <img src="assets/img/portada.webp" width="2400" height="1549" fetchpriority="high" decoding="async"
+        <source media="(max-width:980px)" srcset="assets/img/portada-mobile.webp" width="1100" height="1545">
+        <img src="assets/img/portada.webp" width="2400" height="1549" fetchpriority="high"
              alt="Torre ecoliving suyapa — el edificio con la ciudad de Tegucigalpa y las montañas al fondo">
       </picture>
     </div>
@@ -99,20 +103,26 @@
       <form class="hero__form" id="hero-form" novalidate>
         <div data-form-fields>
           <div class="form-title">Reservá tu lugar</div>
-          <div style="font-size:13px;color:rgba(18,51,41,.6);margin-top:-2px;line-height:1.4">Recibí precios, planos y planes de pago. Respuesta en menos de 24 h.</div>
-          <div class="field" style="margin-top:12px">
+          <p class="form-sub">Recibí precios, planos y planes de pago. Respuesta en menos de 24 h.</p>
+          <div class="field">
             <label for="f-nombre">Nombre</label>
-            <input id="f-nombre" name="nombre" type="text" required placeholder="Tu nombre" autocomplete="name">
+            <input id="f-nombre" name="nombre" type="text" required placeholder="Tu nombre"
+                   autocomplete="name" aria-describedby="err-nombre">
+            <span class="field-error" id="err-nombre"></span>
           </div>
-          <div class="field" style="margin-top:12px">
+          <div class="field">
             <label for="f-tel">Teléfono / WhatsApp</label>
-            <input id="f-tel" name="telefono" type="tel" required placeholder="+504 9999-9999" autocomplete="tel">
+            <input id="f-tel" name="telefono" type="tel" required placeholder="+504 9999-9999"
+                   autocomplete="tel" inputmode="tel" aria-describedby="err-telefono">
+            <span class="field-error" id="err-telefono"></span>
           </div>
-          <div class="field" style="margin-top:12px">
+          <div class="field">
             <label for="f-correo">Correo</label>
-            <input id="f-correo" name="correo" type="email" required placeholder="vos@correo.com" autocomplete="email">
+            <input id="f-correo" name="correo" type="email" required placeholder="vos@correo.com"
+                   autocomplete="email" inputmode="email" aria-describedby="err-correo">
+            <span class="field-error" id="err-correo"></span>
           </div>
-          <div class="field" style="margin-top:12px">
+          <div class="field">
             <span class="lbl" id="interes-lbl">Me interesa</span>
             <div class="seg" role="group" aria-labelledby="interes-lbl">
               <button type="button" class="seg__btn" data-interest="vivir" aria-pressed="true">Vivir aquí</button>
@@ -120,11 +130,11 @@
             </div>
           </div>
           <input type="hidden" name="interes" id="f-interes" value="vivir">
-          <button type="submit" class="form-submit" style="margin-top:14px;width:100%">Agendá tu visita</button>
+          <button type="submit" class="form-submit">Agendá tu visita</button>
         </div>
 
-        <div class="form-success" data-form-success hidden>
-          <img src="assets/logo-emerald.svg" alt="">
+        <div class="form-success" data-form-success hidden tabindex="-1" role="status" aria-live="polite">
+          <img src="assets/logo-emerald.svg" alt="" width="48" height="48">
           <div class="t">¡Listo! Ya sos parte.</div>
           <p>Recibimos tus datos. Te contactamos muy pronto para agendar tu visita.</p>
         </div>
@@ -136,7 +146,7 @@
     <span class="disc"></span>
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <defs><path id="circ" d="M 50,50 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"></path></defs>
-      <text style="font-size:8.6px;font-weight:700;letter-spacing:.47em;fill:#B2E67B"><textPath href="#circ" startOffset="0">AGENDÁ TU VISITA AHORA ·</textPath></text>
+      <text class="spin-badge__text"><textPath href="#circ" startOffset="0">AGENDÁ TU VISITA AHORA ·</textPath></text>
     </svg>
     <span class="mark"><img src="assets/logo-lime.svg" alt=""></span>
   </a>
@@ -498,6 +508,6 @@
   <div class="lb-caption" id="lbCaption"></div>
 </div>
 
-<script src="main.js?v=3"></script>
+<script src="main.js?v=4"></script>
 </body>
 </html>

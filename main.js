@@ -62,31 +62,100 @@
     });
   });
 
-  /* ---------- Hero form submit ---------- */
+  /* ---------- Hero form: validación + envío ---------- */
   var form = document.getElementById('hero-form');
   var fields = form.querySelector('[data-form-fields]');
   var success = form.querySelector('[data-form-success]');
+
+  // Reglas de validación. Cada campo declara cómo se valida y qué mensaje
+  // muestra — así agregar un campo nuevo no obliga a tocar la lógica.
+  var RULES = {
+    nombre: {
+      test: function (v) { return v.trim().length >= 2; },
+      message: 'Escribí tu nombre para poder contactarte.'
+    },
+    telefono: {
+      // Honduras: 8 dígitos, con o sin código de país (504) y con cualquier
+      // separador (espacio, guion, paréntesis).
+      test: function (v) {
+        var digits = v.replace(/\D/g, '').replace(/^504/, '');
+        return digits.length === 8;
+      },
+      message: 'Ingresá un teléfono de 8 dígitos (ej. 9999-9999).'
+    },
+    correo: {
+      test: function (v) { return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim()); },
+      message: 'Ingresá un correo válido (ej. vos@correo.com).'
+    }
+  };
+
+  function errorEl(name) { return document.getElementById('err-' + name); }
+
+  function showError(input, message) {
+    var el = errorEl(input.name);
+    input.setAttribute('aria-invalid', 'true');
+    if (el) { el.textContent = message; el.classList.add('is-visible'); }
+  }
+
+  function clearError(input) {
+    var el = errorEl(input.name);
+    input.removeAttribute('aria-invalid');
+    if (el) { el.textContent = ''; el.classList.remove('is-visible'); }
+  }
+
+  function validateField(input) {
+    var rule = RULES[input.name];
+    if (!rule) return true;
+    var ok = rule.test(input.value);
+    if (ok) clearError(input); else showError(input, rule.message);
+    return ok;
+  }
+
+  // Validar al salir del campo (nunca mientras se escribe por primera vez:
+  // marcar error antes de terminar de escribir se percibe como agresivo).
+  // Una vez marcado, sí se revalida al escribir para que el error desaparezca
+  // en cuanto el dato queda correcto.
+  Object.keys(RULES).forEach(function (name) {
+    var input = form.elements[name];
+    if (!input) return;
+    input.addEventListener('blur', function () {
+      if (input.value !== '') validateField(input);
+    });
+    input.addEventListener('input', function () {
+      if (input.getAttribute('aria-invalid') === 'true') validateField(input);
+    });
+  });
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-    // Collect data (ready to wire to a backend / WhatsApp / email service)
+
+    // Validar todo y enfocar el primer campo con problema.
+    var firstInvalid = null;
+    Object.keys(RULES).forEach(function (name) {
+      var input = form.elements[name];
+      if (!input) return;
+      if (!validateField(input) && !firstInvalid) firstInvalid = input;
+    });
+    if (firstInvalid) { firstInvalid.focus(); return; }
+
     var data = {
       nombre: form.nombre.value.trim(),
       telefono: form.telefono.value.trim(),
       correo: form.correo.value.trim(),
       interes: interestInput.value
     };
+
+    // TODO(backend): enviar `data` al CRM/servicio de correo. Hasta que exista
+    // ese endpoint el lead NO se está guardando en ningún lado.
     // eslint-disable-next-line no-console
     console.log('Lead ecoliving suyapa:', data);
-    // --- Conversión: lead capturado ---
+
     track('generate_lead', { interes: data.interes });
     fbTrack('Lead', { content_name: data.interes });
+
     fields.hidden = true;
     success.hidden = false;
-    success.setAttribute('role', 'status');
+    success.focus(); // lleva el foco al mensaje para teclado y lectores de pantalla
   });
 
   /* ---------- FAQ accordion ---------- */
