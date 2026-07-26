@@ -9,7 +9,7 @@ Referencias usadas en las entradas:
 
 ---
 
-## [V2 · Sprint 1 — Hero: Technical Pass] — 2026-07-25
+## [V2 · Sprint 1 — Hero: Technical Pass] — 2026-07-25 · commit `e7ef2aa`
 
 Primer sprint de la transformación a V2. Alcance **exclusivamente técnico y de UX no visual** sobre la sección Hero: accesibilidad, validación, rendimiento y limpieza de código. **No se modificó copy, titular, subtítulo, imagen ni el selector de perfiles** — eso queda para el Sprint 2 (UX y diseño).
 
