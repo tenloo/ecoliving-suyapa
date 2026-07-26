@@ -142,7 +142,10 @@
     </div>
   </section>
 
-  <a href="#hero-form" class="spin-badge" aria-label="Agendá tu visita">
+  <!-- El nombre accesible debe contener el texto visible del sello
+       ("AGENDÁ TU VISITA AHORA") para cumplir WCAG 2.5.3 Label in Name:
+       de lo contrario el control por voz no puede activarlo. -->
+  <a href="#hero-form" class="spin-badge" aria-label="Agendá tu visita ahora">
     <span class="disc"></span>
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <defs><path id="circ" d="M 50,50 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"></path></defs>

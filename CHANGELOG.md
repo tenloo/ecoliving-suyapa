@@ -43,6 +43,7 @@ Primer sprint de la transformación a V2. Alcance **exclusivamente técnico y de
 - **Doble descarga de la imagen del Hero en móvil.** El `preload` apuntaba siempre a `portada.webp` (208 KB, versión escritorio) aunque el `<picture>` mostrara `portada-mobile.webp` (125 KB): los dispositivos móviles descargaban ambas. Ahora hay dos `preload` con `media` que coinciden exactamente con los breakpoints del `<picture>` — **ahorro de ~208 KB por visita móvil**.
 - El formulario aceptaba teléfonos inválidos (`checkValidity()` daba por bueno cualquier texto en un `type="tel"` sin patrón), generando leads no contactables.
 - El foco no se gestionaba al enviar: ahora salta al primer campo con error, o al mensaje de éxito si el envío fue correcto.
+- **WCAG 2.5.3 (Label in Name) en el sello giratorio.** El texto visible es «AGENDÁ TU VISITA AHORA» pero su `aria-label` decía «Agendá tu visita»: el nombre accesible no contenía el texto visible, por lo que un usuario de control por voz no podía activarlo diciendo lo que veía en pantalla. Detectado por Lighthouse en la revisión previa al despliegue.
 
 ### Cambiado
 - Tamaño de fuente de los inputs de 14 px → **16 px**, para evitar el zoom automático de iOS al enfocar un campo.
