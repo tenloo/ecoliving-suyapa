@@ -92,8 +92,8 @@
   /* ---------- FAQ accordion ---------- */
   var faqData = [
     { q: '¿Dónde queda el proyecto?', a: 'En la zona de Suyapa, Boulevard Suyapa, Tegucigalpa — a pocos pasos de la UNAH. Agendá una visita y coordinamos el punto exacto.' },
-    { q: '¿Cuánto cuestan los apartamentos?', a: 'El precio de venta arranca en $3,000 por m². Un apartaestudio (23–33 m²) parte desde unos $69,000 y los apartamentos de 1 y 2 habitaciones (31–52 m²) desde unos $94,500. Reservás con $3,000 y una prima del 10%. El precio de renta lo confirmamos según disponibilidad.' },
-    { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en preventa: inicia en septiembre y la entrega estimada es en diciembre. Dejanos tus datos y te compartimos el calendario y los planes de pago vigentes.' },
+    { q: '¿Cuánto cuestan los apartamentos?', a: 'Un apartaestudio (23–33 m²) parte desde unos $69,000 y los apartamentos de 1 y 2 habitaciones (31–52 m²) desde unos $94,500. Para venta tenemos unidades con acabados y en obra gris. Reservás con $3,000 y una prima del 10%. El precio de renta lo confirmamos según disponibilidad.' },
+    { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en preventa: inicia en septiembre y la entrega estimada es en diciembre de 2026. Dejanos tus datos y te compartimos el calendario y los planes de pago vigentes.' },
     { q: '¿El parqueo está incluido?', a: 'Sí. Cada apartamento incluye un parqueo.' },
     { q: '¿Puedo comprar para rentar?', a: 'Sí. Es una zona universitaria con demanda constante de estudiantes y jóvenes profesionales, ideal para comprar y rentar. Te preparamos la información para inversionistas.' },
     { q: '¿Cómo agendo una visita?', a: 'Llená el formulario de arriba o escribinos por WhatsApp al +504 9460-1511. La sala de ventas atiende de lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 12:00 m.' }
@@ -146,20 +146,25 @@
     });
   });
 
-  /* ---------- Gallery carousel ---------- */
-  var vp = document.getElementById('galCarousel');
-  if (vp) {
+  /* ---------- Carruseles ----------
+     Se inicializa cada .carousel-viewport de la página. Las flechas se buscan
+     dentro del .carousel contenedor, no en todo el documento, para que cada
+     carrusel controle solamente el suyo. */
+  Array.prototype.forEach.call(document.querySelectorAll('.carousel-viewport'), function (vp) {
+    var root = vp.closest('.carousel') || vp.parentNode;
     var carTrack = vp.querySelector('.carousel-track');
-    var prevBtn = document.querySelector('.car-prev');
-    var nextBtn = document.querySelector('.car-next');
+    if (!carTrack) return;
+    var prevBtn = root.querySelector('.car-prev');
+    var nextBtn = root.querySelector('.car-next');
     var step = function () {
-      var slide = carTrack.querySelector('.g-slide');
+      var slide = carTrack.firstElementChild;
       return slide ? slide.getBoundingClientRect().width + 16 : vp.clientWidth * 0.8;
     };
     var updateArrows = function () {
       var maxScroll = vp.scrollWidth - vp.clientWidth - 4;
-      if (prevBtn) prevBtn.disabled = vp.scrollLeft <= 4;
-      if (nextBtn) nextBtn.disabled = vp.scrollLeft >= maxScroll;
+      var sinDesborde = vp.scrollWidth <= vp.clientWidth + 4;
+      if (prevBtn) prevBtn.disabled = sinDesborde || vp.scrollLeft <= 4;
+      if (nextBtn) nextBtn.disabled = sinDesborde || vp.scrollLeft >= maxScroll;
     };
     if (nextBtn) nextBtn.addEventListener('click', function () { vp.scrollBy({ left: step(), behavior: 'smooth' }); });
     if (prevBtn) prevBtn.addEventListener('click', function () { vp.scrollBy({ left: -step(), behavior: 'smooth' }); });
@@ -186,7 +191,7 @@
     vp.addEventListener('click', function (e) {
       if (moved > 8) { e.stopPropagation(); e.preventDefault(); }
     }, true);
-  }
+  });
 
   /* ---------- Lightbox ---------- */
   var openers = Array.prototype.slice.call(document.querySelectorAll('#galeria .g-open'));

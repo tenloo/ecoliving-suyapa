@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ecoliving suyapa · Coliving frente a la UNAH — Tegucigalpa</title>
-<meta name="description" content="Coliving eco frente a la UNAH, Boulevard Suyapa. Habitación privada amoblada, todo incluido: gimnasio, rooftop, coworking y más. Preventa abierta — agendá tu visita.">
+<meta name="description" content="Apartaestudios, apartamentos de 1 y 2 habitaciones y coliving frente a la UNAH, Boulevard Suyapa. Gimnasio, rooftop, coworking y más. Preventa abierta — agendá tu visita.">
 <meta name="theme-color" content="#123329">
 
 <!-- Open Graph -->
@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=23">
 
 <!-- ===================== ANALYTICS / RETARGETING =====================
      Reemplazá los IDs placeholder por los reales antes de publicar.
@@ -115,11 +115,11 @@
           <div class="field" style="margin-top:12px">
             <span class="lbl" id="interes-lbl">Me interesa</span>
             <div class="seg" role="group" aria-labelledby="interes-lbl">
-              <button type="button" class="seg__btn" data-interest="vivir" aria-pressed="true">Vivir aquí</button>
+              <button type="button" class="seg__btn" data-interest="rentar" aria-pressed="true">Rentar</button>
               <button type="button" class="seg__btn" data-interest="invertir" aria-pressed="false">Invertir</button>
             </div>
           </div>
-          <input type="hidden" name="interes" id="f-interes" value="vivir">
+          <input type="hidden" name="interes" id="f-interes" value="rentar">
           <button type="submit" class="form-submit" style="margin-top:14px;width:100%">Agendá tu visita</button>
         </div>
 
@@ -148,29 +148,46 @@
     <h2 class="h2" id="espacios-h" style="max-width:520px">Espacios pensados <br>para vos</h2>
     <a href="#hero-form" class="btn btn--green">Reservá en preventa <span class="arrow">→</span></a>
   </div>
-  <div class="grid-auto">
-    <!-- Habitación (real render) -->
-    <article class="space-card reveal">
-      <div class="thumb"><div class="render"><img src="assets/img/habitacion-2.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Habitación privada amoblada con ventanal de piso a techo"></div></div>
+  <div class="carousel">
+   <div class="carousel-viewport" id="espCarousel">
+    <div class="carousel-track">
+    <article class="space-card">
+      <div class="thumb"><div class="render"><img src="assets/img/habitacion-2.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Apartaestudio amoblado con ventanal de piso a techo"></div></div>
       <div class="body">
-        <div class="row"><div class="name">Habitación privada</div><div class="tag">Preventa</div></div>
-        <div class="meta">Amoblada · Servicios incluidos · m² por anunciar</div>
+        <div class="row"><div class="name">Apartaestudios</div><div class="tag">Preventa</div></div>
+        <div class="meta">23–33 m² · 1 ambiente · 1 parqueo</div>
       </div>
     </article>
 
-    <article class="space-card reveal d1">
-      <div class="thumb">
-        <div class="render"><img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop con terraza de madera, mobiliario y vista a la ciudad"></div>
-      </div>
+    <article class="space-card">
+      <div class="thumb"><div class="render"><img src="assets/img/habitacion-1.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Apartamento de una habitación con ventanal y vista a la ciudad"></div></div>
       <div class="body">
-        <div class="row"><div class="name">Rooftop</div><div class="tag">Incluido</div></div>
-        <div class="meta">Vistas de la ciudad · Eventos y convivencia</div>
+        <div class="row"><div class="name">1 y 2 habitaciones</div><div class="tag">Preventa</div></div>
+        <div class="meta">31–52 m² · 1–2 baños · 1 parqueo</div>
       </div>
     </article>
 
-    <article class="space-card reveal d2">
+    <article class="space-card">
+      <div class="thumb"><div class="render"><img src="assets/img/comun.webp" width="928" height="1152" loading="lazy" decoding="async" alt="Áreas comunes del coliving con gente conviviendo en un espacio abierto"></div></div>
+      <div class="body">
+        <div class="row"><div class="name">Coliving</div><div class="tag">Preventa</div></div>
+        <div class="meta">157–179 m² · 6 a 7 habitaciones · 5 a 7 baños</div>
+      </div>
+    </article>
+
+    <article class="space-card">
       <div class="thumb">
-        <div class="render"><img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking y sala de estudio con escritorios de madera y luz natural"></div>
+        <div class="render"><img src="assets/img/r-rooftop.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Rooftop con sofás, mesas y barra, con vista a las montañas de Tegucigalpa"></div>
+      </div>
+      <div class="body">
+        <div class="row"><div class="name">Rooftop / azotea</div><div class="tag">Incluido</div></div>
+        <div class="meta">Juegos, convivencia, estudio, podcast y cubículos VIP</div>
+      </div>
+    </article>
+
+    <article class="space-card">
+      <div class="thumb">
+        <div class="render"><img src="assets/img/r-coworking.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Coworking con escritorios frente a ventanales y vista a las montañas de Tegucigalpa"></div>
       </div>
       <div class="body">
         <div class="row"><div class="name">Coworking y estudio</div><div class="tag">Incluido</div></div>
@@ -178,16 +195,21 @@
       </div>
     </article>
 
-    <article class="space-card reveal d3">
+    <article class="space-card">
       <div class="thumb">
-        <div class="render"><img src="assets/img/lounge.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del lounge y cafetería con sofás cómodos y barra de café"></div>
+        <div class="render"><img src="assets/img/lounge.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del área comercial en planta baja con locales y zona de estar"></div>
       </div>
       <div class="body">
-        <div class="row"><div class="name">Lounge y cafetería</div><div class="tag">Incluido</div></div>
-        <div class="meta">Tu sala de estar compartida · Café a pasos</div>
+        <div class="row"><div class="name">Área comercial</div><div class="tag">Planta baja</div></div>
+        <div class="meta">Locales comerciales a la calle · Abiertos al público y a los residentes</div>
       </div>
     </article>
+    </div>
+   </div>
+   <button type="button" class="car-btn car-prev" aria-label="Espacio anterior">&lsaquo;</button>
+   <button type="button" class="car-btn car-next" aria-label="Espacio siguiente">&rsaquo;</button>
   </div>
+  <p class="car-hint">Deslizá para ver más &rarr;</p>
 </section>
 
 <!-- ===================== AMENIDADES / MOSAICO ===================== -->
@@ -195,7 +217,7 @@
   <div class="head-row head-row--top reveal">
     <h2 class="h2" id="amen-h" style="max-width:460px;line-height:1.12">Vivir simple,<br>conectado y eco</h2>
     <div style="max-width:400px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
-      <p class="lead">Gimnasio, rooftop, coworking, lounge y más, sin salir del edificio. Con paneles solares, áreas verdes y agua de pozo: un proyecto pensado para vivir mejor y gastar menos.</p>
+      <p class="lead">Gimnasio, rooftop, coworking, terrazas y más, sin salir del edificio. Con paneles solares y áreas verdes: un proyecto pensado para vivir mejor y gastar menos.</p>
       <a href="#hero-form" class="btn btn--ink" style="letter-spacing:.04em">AGENDÁ TU VISITA <span>→</span></a>
     </div>
   </div>
@@ -204,21 +226,22 @@
       <div class="render"><img src="assets/img/gym.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del gimnasio equipado con máquinas modernas y luz natural"></div>
     </div>
     <div class="tile reveal d1">
-      <div class="render"><img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop al atardecer con vista a Tegucigalpa"></div>
+      <div class="render"><img src="assets/img/r-terraza.webp" width="1600" height="883" loading="lazy" decoding="async" alt="Terraza con barra y sala exterior al atardecer, con vista a las montañas"></div>
     </div>
     <div class="amen-card reveal d2">
       <div>
-        <div class="big">7</div>
+        <div class="big">12</div>
         <div class="sub">amenidades incluidas</div>
       </div>
       <div class="chips">
         <span class="chip">Gimnasio</span><span class="chip">Rooftop</span><span class="chip">Coworking</span>
-        <span class="chip">Lounge</span><span class="chip">Cafetería</span><span class="chip">Lavandería</span>
-        <span class="chip">Parqueo</span>
+        <span class="chip">Área de estudio</span><span class="chip">Área de podcast</span><span class="chip">Cubículos VIP</span>
+        <span class="chip">Área de juegos</span><span class="chip">Áreas de convivencia</span><span class="chip">Áreas de entretenimiento</span>
+        <span class="chip">Terrazas y balcones</span><span class="chip">Áreas de barbacoa</span><span class="chip">Lavandería</span>
       </div>
     </div>
     <div class="tile reveal d3">
-      <div class="render"><img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking con escritorios compartidos"></div>
+      <div class="render"><img src="assets/img/r-juegos.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Sala de juegos con billar, futbolín y ping pong frente al ventanal"></div>
     </div>
   </div>
 </section>
@@ -242,13 +265,37 @@
           <img src="assets/img/habitacion-1.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Render de habitación con ventanal y vista a la ciudad">
           <span class="caption">Habitación</span>
         </button>
-        <button type="button" class="g-slide g-open" data-src="assets/img/rooftop.webp" data-caption="Rooftop" aria-label="Ampliar imagen: Rooftop">
-          <img src="assets/img/rooftop.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del rooftop">
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-rooftop.webp" data-caption="Rooftop" aria-label="Ampliar imagen: Rooftop">
+          <img src="assets/img/r-rooftop.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Rooftop con sofás, mesas y barra, con vista a las montañas de Tegucigalpa">
           <span class="caption">Rooftop</span>
         </button>
-        <button type="button" class="g-slide g-open" data-src="assets/img/lounge.webp" data-caption="Lounge y cafetería" aria-label="Ampliar imagen: Lounge y cafetería">
-          <img src="assets/img/lounge.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del lounge y cafetería">
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-juegos.webp" data-caption="Sala de juegos" aria-label="Ampliar imagen: Sala de juegos">
+          <img src="assets/img/r-juegos.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Sala de juegos con billar, futbolín y ping pong frente al ventanal">
+          <span class="caption">Sala de juegos</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-biblioteca.webp" data-caption="Coworking y biblioteca" aria-label="Ampliar imagen: Coworking y biblioteca">
+          <img src="assets/img/r-biblioteca.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Coworking con biblioteca de doble altura y vista panorámica a la ciudad">
+          <span class="caption">Coworking y biblioteca</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-terraza.webp" data-caption="Terraza" aria-label="Ampliar imagen: Terraza">
+          <img src="assets/img/r-terraza.webp" width="1600" height="883" loading="lazy" decoding="async" alt="Terraza con barra y sala exterior al atardecer">
+          <span class="caption">Terraza</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-cocina.webp" data-caption="Cocina comunal" aria-label="Ampliar imagen: Cocina comunal">
+          <img src="assets/img/r-cocina.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Cocina comunal con isla de terrazo, hornos y barra de café">
+          <span class="caption">Cocina comunal</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-podcast.webp" data-caption="Sala de podcast" aria-label="Ampliar imagen: Sala de podcast">
+          <img src="assets/img/r-podcast.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Sala de podcast con micrófonos, butacas y ventanal a la ciudad">
+          <span class="caption">Sala de podcast</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-lounge-noche.webp" data-caption="Lounge y cafetería" aria-label="Ampliar imagen: Lounge y cafetería">
+          <img src="assets/img/r-lounge-noche.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Lounge y cafetería de noche con vista a las luces de la ciudad">
           <span class="caption">Lounge y cafetería</span>
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/r-coworking.webp" data-caption="Coworking y estudio" aria-label="Ampliar imagen: Coworking y estudio">
+          <img src="assets/img/r-coworking.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Coworking con escritorios frente a ventanales y vista a las montañas">
+          <span class="caption">Coworking y estudio</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/gym.webp" data-caption="Gimnasio" aria-label="Ampliar imagen: Gimnasio">
           <img src="assets/img/gym.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del gimnasio">
@@ -257,10 +304,6 @@
         <button type="button" class="g-slide g-open" data-src="assets/img/verdes.webp" data-caption="Áreas verdes" aria-label="Ampliar imagen: Áreas verdes">
           <img src="assets/img/verdes.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render de las áreas verdes con jardines y vegetación">
           <span class="caption">Áreas verdes</span>
-        </button>
-        <button type="button" class="g-slide g-open" data-src="assets/img/coworking.webp" data-caption="Coworking y estudio" aria-label="Ampliar imagen: Coworking y estudio">
-          <img src="assets/img/coworking.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del coworking y sala de estudio">
-          <span class="caption">Coworking y estudio</span>
         </button>
       </div>
     </div>
@@ -276,7 +319,7 @@
     <div class="units-figs">
       <div class="ufig"><b>232</b><span>Apartamentos</span></div>
       <div class="ufig"><b>1</b><span>Parqueo por apartamento</span></div>
-      <div class="ufig"><b>7</b><span>Amenidades incluidas</span></div>
+      <div class="ufig"><b>12</b><span>Amenidades incluidas</span></div>
     </div>
 
     <div class="units-head">
@@ -291,7 +334,7 @@
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">Apartaestudio</span><span class="unit__m2">23&ndash;33 m&sup2;</span></div>
           <div class="unit__spec">1 ambiente &middot; 1 ba&ntilde;o &middot; 1 parqueo</div>
-          <div class="unit__price">Desde <b>$69,000</b><span class="unit__pm">&middot; $3,000 / m&sup2;</span></div>
+          <div class="unit__price">Desde <b>$69,000</b><span class="unit__pm">&middot; Acabados u obra gris</span></div>
           <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-estudio">M&aacute;s info</a>
         </div>
       </article>
@@ -300,7 +343,7 @@
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">1 y 2 habitaciones</span><span class="unit__m2">31&ndash;52 m&sup2;</span></div>
           <div class="unit__spec">1&ndash;2 ba&ntilde;os &middot; 1 parqueo</div>
-          <div class="unit__price">Desde <b>$94,500</b><span class="unit__pm">&middot; $3,000 / m&sup2;</span></div>
+          <div class="unit__price">Desde <b>$94,500</b><span class="unit__pm">&middot; Acabados u obra gris</span></div>
           <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-apto">M&aacute;s info</a>
         </div>
       </article>
@@ -315,7 +358,7 @@
       </article>
     </div>
 
-    <p class="units-note">Venta desde $3,000/m&sup2;. Reserv&aacute; con $3,000 y 10% de prima. Renta: consult&aacute;. &Aacute;reas y disponibilidad sujetas a confirmaci&oacute;n.</p>
+    <p class="units-note"><b>Para venta disponemos de apartamentos con acabados y en obra gris.</b> Reserv&aacute; con $3,000 y 10% de prima. Renta: consult&aacute;. &Aacute;reas y disponibilidad sujetas a confirmaci&oacute;n.</p>
   </div>
 </section>
 
@@ -332,9 +375,33 @@
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Frente a la UNAH</div><div class="d">La mejor ubicación del Boulevard Suyapa. Todo a un paso, sin transporte.</div></div></div>
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Comunidad real</div><div class="d">Coliving de verdad, no roommates al azar. Tu espacio, tu gente.</div></div></div>
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Todo a mano</div><div class="d">Gimnasio, rooftop, coworking y más — más comercios y cafés en la planta baja.</div></div></div>
-        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Enfoque eco</div><div class="d">Paneles solares, áreas verdes y agua de pozo. Sostenible en serio.</div></div></div>
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Enfoque eco</div><div class="d">Paneles solares y áreas verdes. Menos consumo, menos gasto mensual.</div></div></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===================== QUIÉNES SOMOS / NUESTROS PROYECTOS ===================== -->
+<section class="section" id="nosotros" aria-labelledby="nos-h">
+  <div class="head-row head-row--top reveal">
+    <div>
+      <div class="kicker eyebrow">Quiénes somos</div>
+      <h2 class="h2" id="nos-h" style="max-width:460px;line-height:1.12">Nuestros<br>proyectos</h2>
+    </div>
+    <div class="dev-by">
+      <span class="dev-by__label">Desarrollado por</span>
+      <img src="assets/img/logo-eco-proyectos.png" width="97" height="120" loading="lazy" decoding="async" alt="Eco Proyectos S.A. de C.V.">
+    </div>
+  </div>
+  <div class="proj-grid">
+    <article class="proj proj--actual reveal">
+      <img class="proj__logo" src="assets/logo-full.svg" loading="lazy" decoding="async" alt="Ecoliving Suyapa">
+      <span class="proj__tag">Este proyecto</span>
+    </article>
+    <article class="proj reveal d1"><img class="proj__logo" src="assets/img/logo-distrito-verde.png" width="94" height="120" loading="lazy" decoding="async" alt="Distrito Verde"></article>
+    <article class="proj reveal d2"><img class="proj__logo" src="assets/img/logo-ecovivienda.png" width="95" height="120" loading="lazy" decoding="async" alt="Ecovivienda"></article>
+    <article class="proj reveal d3"><img class="proj__logo" src="assets/img/logo-ecoplaza.png" width="148" height="120" loading="lazy" decoding="async" alt="Ecoplaza"></article>
+    <article class="proj reveal"><img class="proj__logo" src="assets/img/logo-ecodistrito.png" width="300" height="38" loading="lazy" decoding="async" alt="Ecodistrito"></article>
   </div>
 </section>
 
@@ -365,8 +432,8 @@
     <div class="dist-list">
       <div class="dist"><span class="place">UNAH — entrada principal</span><span class="time">Cruzando la calle</span></div>
       <div class="dist"><span class="place">Boulevard Suyapa</span><span class="time">Estás en él</span></div>
-      <div class="dist"><span class="place">Mall Multiplaza</span><span class="time">5 min</span></div>
-      <div class="dist"><span class="place">Hospital Escuela</span><span class="time">5 min</span></div>
+      <div class="dist"><span class="place">Centros comerciales</span><span class="time">5 min</span></div>
+      <div class="dist"><span class="place">Hospitales y cl&iacute;nicas de la zona</span><span class="time">A pocos minutos</span></div>
     </div>
   </div>
   <div class="col-map reveal d1">
@@ -434,7 +501,7 @@
   <h2 class="h2 reveal" id="faq-h" style="font-size:clamp(26px,3.4vw,38px);text-align:center;margin-bottom:34px">Preguntas frecuentes</h2>
   <div class="faq-wrap">
     <div class="faq-media reveal">
-      <div class="render"><img src="assets/img/comunidad.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Comunidad de ecoliving suyapa compartiendo en el rooftop al atardecer"></div>
+      <div class="render"><img src="assets/img/r-lounge-noche.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Lounge y cafetería de noche con vista a las luces de Tegucigalpa"></div>
     </div>
     <div class="faq-list reveal d1" id="faqList">
       <!-- FAQ items injected by JS -->
@@ -498,6 +565,6 @@
   <div class="lb-caption" id="lbCaption"></div>
 </div>
 
-<script src="main.js?v=3"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>
