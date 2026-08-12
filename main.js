@@ -79,11 +79,33 @@
       correo: form.correo.value.trim(),
       interes: interestInput.value
     };
-    // eslint-disable-next-line no-console
-    console.log('Lead ecoliving suyapa:', data);
     // --- Conversión: lead capturado ---
     track('generate_lead', { interes: data.interes });
     fbTrack('Lead', { content_name: data.interes });
+
+    /* El sitio es estático (GitHub Pages): no hay servidor que mande el correo,
+       así que el envío lo hace un servicio externo. Mientras la clave siga
+       siendo el marcador, el lead NO sale a ningún lado. */
+    if (WEB3FORMS_KEY.indexOf('PENDIENTE') !== 0) {
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'Nuevo lead — ecoliving suyapa',
+          from_name: 'Sitio ecoliving suyapa',
+          botcheck: form.botcheck ? form.botcheck.value : '',
+          nombre: data.nombre,
+          telefono: data.telefono,
+          correo: data.correo,
+          interes: data.interes
+        })
+      }).catch(function () { /* el usuario ya vio la confirmación; no se le muestra el fallo */ });
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn('[ecoliving] Falta la clave de Web3Forms: este lead no se envió a nadie.', data);
+    }
+
     fields.hidden = true;
     success.hidden = false;
     success.setAttribute('role', 'status');
@@ -94,8 +116,8 @@
     { q: '¿Dónde queda el proyecto?', a: 'En la zona de Suyapa, Boulevard Suyapa, Tegucigalpa — a pocos pasos de la UNAH. Agendá una visita y coordinamos el punto exacto.' },
     { q: '¿Cuánto cuestan los apartamentos?', a: 'Un apartaestudio (23–33 m²) parte desde unos $69,000 y los apartamentos de 1 y 2 habitaciones (31–52 m²) desde unos $94,500. Para venta tenemos unidades con acabados y en obra gris. Reservás con $3,000 y una prima del 10%. El precio de renta lo confirmamos según disponibilidad.' },
     { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en preventa: inicia en septiembre y la entrega estimada es en diciembre de 2026. Dejanos tus datos y te compartimos el calendario y los planes de pago vigentes.' },
-    { q: '¿El parqueo está incluido?', a: 'Sí. Cada apartamento incluye un parqueo.' },
-    { q: '¿Puedo comprar para rentar?', a: 'Sí. Es una zona universitaria con demanda constante de estudiantes y jóvenes profesionales, ideal para comprar y rentar. Te preparamos la información para inversionistas.' },
+    { q: '¿El parqueo está incluido?', a: 'Sí. Cada apartamento incluye un parqueo. También se podrán alquilar parqueos adicionales.' },
+    { q: '¿Puedo comprar para rentar?', a: 'Sí. Es una zona de alta plusvalía y con demanda constante de arrendamiento, ideal para comprar y rentar. Te preparamos la información para inversionistas.' },
     { q: '¿Cómo agendo una visita?', a: 'Llená el formulario de arriba o escribinos por WhatsApp al +504 9460-1511. La sala de ventas atiende de lunes a viernes de 8:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 12:00 m.' }
   ];
 
@@ -109,7 +131,11 @@
     el.innerHTML =
       '<button class="faq__btn" aria-expanded="' + (idx === openIndex) + '" aria-controls="faq-p-' + idx + '">' +
         '<span class="faq__q"><span class="faq__num">' + num + '</span>' + item.q + '</span>' +
-        '<span class="faq__icon" aria-hidden="true">+</span>' +
+        '<span class="faq__icon" aria-hidden="true">'+
+          '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">'+
+            '<path d="M5 12h14"/><path class="faq__icon-v" d="M12 5v14"/>'+
+          '</svg>'+
+        '</span>' +
       '</button>' +
       '<div class="faq__panel" id="faq-p-' + idx + '" role="region"><p>' + item.a + '</p></div>';
     list.appendChild(el);
@@ -119,10 +145,8 @@
   var setPanel = function (el, open) {
     var panel = el.querySelector('.faq__panel');
     var btn = el.querySelector('.faq__btn');
-    var icon = el.querySelector('.faq__icon');
     el.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
-    icon.textContent = open ? '–' : '+';
     panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
   };
   // init open panel height
@@ -193,12 +217,54 @@
     }, true);
   });
 
+
+  /* =========================================================
+     Agendar visita — Calendly
+     Se carga el widget recién al primer clic: quien nunca agenda no paga
+     el costo del script. Mientras la URL siga siendo el marcador, los
+     botones caen a su href normal (bajan al formulario), así que nunca
+     queda un botón muerto.
+     ========================================================= */
+  var CALENDLY_URL = 'PENDIENTE-URL-DE-CALENDLY';
+  var WEB3FORMS_KEY = 'PENDIENTE-CLAVE-WEB3FORMS';
+  var calendlyListo = false;
+
+  var cargarCalendly = function (cb) {
+    if (calendlyListo) { cb(); return; }
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(css);
+    var sc = document.createElement('script');
+    sc.src = 'https://assets.calendly.com/assets/external/widget.js';
+    sc.async = true;
+    sc.onload = function () { calendlyListo = true; cb(); };
+    sc.onerror = function () { calendlyListo = false; };
+    document.head.appendChild(sc);
+  };
+
+  var abrirVisita = function (e) {
+    if (CALENDLY_URL.indexOf('PENDIENTE') === 0) return; // sin configurar: deja pasar el href
+    e.preventDefault();
+    // el interés declarado en el formulario viaja a Calendly como respuesta previa
+    var interes = (document.getElementById('f-interes') || {}).value || '';
+    var url = CALENDLY_URL + (CALENDLY_URL.indexOf('?') < 0 ? '?' : '&') +
+              'a1=' + encodeURIComponent(interes === 'invertir' ? 'Invertir' : 'Rentar');
+    cargarCalendly(function () {
+      if (window.Calendly) window.Calendly.initPopupWidget({ url: url });
+    });
+    track('cta_click', { accion: 'agendar_visita', interes: interes });
+  };
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-visita]'), function (el) {
+    el.addEventListener('click', abrirVisita);
+  });
+
   /* ---------- Lightbox ---------- */
   var openers = Array.prototype.slice.call(document.querySelectorAll('#galeria .g-open'));
   var lb = document.getElementById('lightbox');
   if (lb && openers.length) {
     var lbImg = document.getElementById('lbImg');
-    var lbCap = document.getElementById('lbCaption');
     var lbIndex = 0;
     var lastFocus = null;
 
@@ -208,7 +274,6 @@
       var img = o.querySelector('img');
       lbImg.src = o.getAttribute('data-src') || img.getAttribute('src');
       lbImg.alt = img ? img.getAttribute('alt') : '';
-      lbCap.textContent = o.getAttribute('data-caption') || '';
     };
     var openLb = function (i) {
       lastFocus = document.activeElement;

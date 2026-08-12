@@ -15,11 +15,11 @@
 <meta property="og:locale" content="es_HN">
 
 <link rel="icon" href="assets/logo-emerald.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/portada.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/portada-v2.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=23">
+<link rel="stylesheet" href="styles.css?v=39">
 
 <!-- ===================== ANALYTICS / RETARGETING =====================
      Reemplazá los IDs placeholder por los reales antes de publicar.
@@ -61,7 +61,7 @@
       <a href="#distribuciones">Distribuciones</a>
       <a href="#ubicacion">Ubicación</a>
       <a href="#faq">FAQ</a>
-      <a href="#hero-form" class="btn btn--ink">Agendá tu visita</a>
+      <a href="#hero-form" class="btn btn--ink" data-visita>Agendá tu visita</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
@@ -76,7 +76,7 @@
   <a href="#distribuciones">Distribuciones</a>
   <a href="#ubicacion">Ubicación</a>
   <a href="#faq">FAQ</a>
-  <a href="#hero-form" class="btn">Agendá tu visita</a>
+  <a href="#hero-form" class="btn" data-visita>Agendá tu visita</a>
 </nav>
 
 <!-- ===================== HERO ===================== -->
@@ -84,9 +84,9 @@
   <section class="hero" id="hero" aria-label="Presentación">
     <div class="hero__media">
       <picture>
-        <source media="(max-width:980px)" srcset="assets/img/portada-mobile.webp">
-        <img src="assets/img/portada.webp" width="2400" height="1549" fetchpriority="high" decoding="async"
-             alt="Torre ecoliving suyapa — el edificio con la ciudad de Tegucigalpa y las montañas al fondo">
+        <source media="(max-width:560px)" srcset="assets/img/portada-v2-mobile.webp">
+        <img src="assets/img/portada-v2.webp" width="2000" height="1548" fetchpriority="high" decoding="async"
+             alt="Torre ecoliving suyapa con su marca en la fachada, vista desde el bulevar">
       </picture>
     </div>
     <div class="hero__scrim"></div>
@@ -98,8 +98,8 @@
 
       <form class="hero__form" id="hero-form" novalidate>
         <div data-form-fields>
-          <div class="form-title">Reservá tu lugar</div>
-          <div style="font-size:13px;color:rgba(18,51,41,.6);margin-top:-2px;line-height:1.4">Recibí precios, planos y planes de pago. Respuesta en menos de 24 h.</div>
+          <div class="form-title">Recibí precios y planos</div>
+          <div style="font-size:13px;color:rgba(18,51,41,.6);margin-top:-2px;line-height:1.4">Te enviamos áreas, precios y planes de pago. Respuesta en menos de 24 h.</div>
           <div class="field" style="margin-top:12px">
             <label for="f-nombre">Nombre</label>
             <input id="f-nombre" name="nombre" type="text" required placeholder="Tu nombre" autocomplete="name">
@@ -120,7 +120,9 @@
             </div>
           </div>
           <input type="hidden" name="interes" id="f-interes" value="rentar">
-          <button type="submit" class="form-submit" style="margin-top:14px;width:100%">Agendá tu visita</button>
+          <!-- Campo trampa: los robots lo llenan, las personas no lo ven. -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+          <button type="submit" class="form-submit" style="margin-top:14px;width:100%">Recibir información</button>
         </div>
 
         <div class="form-success" data-form-success hidden>
@@ -132,7 +134,7 @@
     </div>
   </section>
 
-  <a href="#hero-form" class="spin-badge" aria-label="Agendá tu visita">
+  <a href="#hero-form" class="spin-badge" aria-label="Agendá tu visita" data-visita>
     <span class="disc"></span>
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <defs><path id="circ" d="M 50,50 m -32,0 a 32,32 0 1,1 64,0 a 32,32 0 1,1 -64,0"></path></defs>
@@ -146,13 +148,13 @@
 <section class="section section--espacios" id="espacios" aria-labelledby="espacios-h">
   <div class="head-row reveal">
     <h2 class="h2" id="espacios-h" style="max-width:520px">Espacios pensados <br>para vos</h2>
-    <a href="#hero-form" class="btn btn--green">Reservá en preventa <span class="arrow">→</span></a>
+    <a href="#hero-form" class="btn btn--green">Recibí precios y planos <span class="arrow"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg></span></a>
   </div>
   <div class="carousel">
    <div class="carousel-viewport" id="espCarousel">
     <div class="carousel-track">
     <article class="space-card">
-      <div class="thumb"><div class="render"><img src="assets/img/habitacion-2.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Apartaestudio amoblado con ventanal de piso a techo"></div></div>
+      <div class="thumb"><div class="render"><img src="assets/img/f08-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Apartaestudio real terminado: cama, cocina integrada y viga coral"></div></div>
       <div class="body">
         <div class="row"><div class="name">Apartaestudios</div><div class="tag">Preventa</div></div>
         <div class="meta">23–33 m² · 1 ambiente · 1 parqueo</div>
@@ -160,7 +162,7 @@
     </article>
 
     <article class="space-card">
-      <div class="thumb"><div class="render"><img src="assets/img/habitacion-1.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Apartamento de una habitación con ventanal y vista a la ciudad"></div></div>
+      <div class="thumb"><div class="render"><img src="assets/img/f01-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación real terminada con cabecero oscuro, cama matrimonial y TV"></div></div>
       <div class="body">
         <div class="row"><div class="name">1 y 2 habitaciones</div><div class="tag">Preventa</div></div>
         <div class="meta">31–52 m² · 1–2 baños · 1 parqueo</div>
@@ -168,9 +170,9 @@
     </article>
 
     <article class="space-card">
-      <div class="thumb"><div class="render"><img src="assets/img/comun.webp" width="928" height="1152" loading="lazy" decoding="async" alt="Áreas comunes del coliving con gente conviviendo en un espacio abierto"></div></div>
+      <div class="thumb"><div class="render"><img src="assets/img/f25-area-comun.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Área común real del coliving con barra, arcos de color y bancos"></div></div>
       <div class="body">
-        <div class="row"><div class="name">Coliving</div><div class="tag">Preventa</div></div>
+        <div class="row"><div class="name">Coliving</div><div class="tag">Solo renta</div></div>
         <div class="meta">157–179 m² · 6 a 7 habitaciones · 5 a 7 baños</div>
       </div>
     </article>
@@ -206,8 +208,8 @@
     </article>
     </div>
    </div>
-   <button type="button" class="car-btn car-prev" aria-label="Espacio anterior">&lsaquo;</button>
-   <button type="button" class="car-btn car-next" aria-label="Espacio siguiente">&rsaquo;</button>
+   <button type="button" class="car-btn car-prev" aria-label="Espacio anterior"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
+   <button type="button" class="car-btn car-next" aria-label="Espacio siguiente"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
   <p class="car-hint">Deslizá para ver más &rarr;</p>
 </section>
@@ -218,7 +220,7 @@
     <h2 class="h2" id="amen-h" style="max-width:460px;line-height:1.12">Vivir simple,<br>conectado y eco</h2>
     <div style="max-width:400px;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
       <p class="lead">Gimnasio, rooftop, coworking, terrazas y más, sin salir del edificio. Con paneles solares y áreas verdes: un proyecto pensado para vivir mejor y gastar menos.</p>
-      <a href="#hero-form" class="btn btn--ink" style="letter-spacing:.04em">AGENDÁ TU VISITA <span>→</span></a>
+      <a href="#hero-form" class="btn btn--ink" style="letter-spacing:.04em">RECIBÍ PRECIOS Y PLANOS <span class="arrow"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg></span></a>
     </div>
   </div>
   <div class="mosaic">
@@ -250,65 +252,127 @@
 <section class="section" id="galeria" aria-labelledby="gal-h">
   <div class="head-row head-row--end reveal">
     <h2 class="h2" id="gal-h" style="max-width:520px">Conocé las <br>instalaciones</h2>
-    <p class="lead" style="max-width:380px">Un recorrido por los espacios del proyecto. Renders oficiales — fotos reales muy pronto.</p>
   </div>
   <div class="g-wide reveal">
-    <button type="button" class="g-open" data-src="assets/img/fachada.webp" data-caption="El edificio" aria-label="Ampliar imagen: El edificio">
-      <img src="assets/img/fachada.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render panorámico de la fachada del edificio ecoliving suyapa con jardines verticales">
-      <span class="caption caption--lg">El edificio</span>
+    <button type="button" class="g-open" data-src="assets/img/fachada-v2.webp" data-caption="El edificio" aria-label="Ampliar imagen: El edificio">
+      <img src="assets/img/fachada-v2.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Torre ecoliving suyapa vista desde el bulevar, con su marca en la fachada">
     </button>
   </div>
   <div class="carousel reveal d1">
     <div class="carousel-viewport" id="galCarousel">
       <div class="carousel-track">
+        <button type="button" class="g-slide g-open" data-src="assets/img/f01-habitacion.webp" data-caption="Habitación" aria-label="Ampliar imagen: Habitación con cabecero oscuro, cama matrimonial y TV">
+          <img src="assets/img/f01-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con cabecero oscuro, cama matrimonial y TV">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f02-habitacion.webp" data-caption="Habitación con dos camas" aria-label="Ampliar imagen: Habitación con dos camas individuales, TV y aire acondicionado">
+          <img src="assets/img/f02-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con dos camas individuales, TV y aire acondicionado">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f03-habitacion.webp" data-caption="Habitación con cocina" aria-label="Ampliar imagen: Habitación con dos camas, mesa de comedor y cocina integrada">
+          <img src="assets/img/f03-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con dos camas, mesa de comedor y cocina integrada">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f04-habitacion.webp" data-caption="Habitación con escritorio" aria-label="Ampliar imagen: Habitación con escritorio, estantería negra y TV">
+          <img src="assets/img/f04-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con escritorio, estantería negra y TV">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f05-habitacion.webp" data-caption="Habitación con jardín" aria-label="Ampliar imagen: Habitación con escritorio, espejo y salida al jardín">
+          <img src="assets/img/f05-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con escritorio, espejo y salida al jardín">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f06-habitacion.webp" data-caption="Habitación con jardín" aria-label="Ampliar imagen: Habitación con celosía de madera y ventanal al jardín">
+          <img src="assets/img/f06-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con celosía de madera y ventanal al jardín">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f07-habitacion.webp" data-caption="Habitación con escritorio" aria-label="Ampliar imagen: Habitación con pared verde, escritorio y zona de estar">
+          <img src="assets/img/f07-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con pared verde, escritorio y zona de estar">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f08-habitacion.webp" data-caption="Habitación con cocina" aria-label="Ampliar imagen: Habitación con cocina integrada y viga coral">
+          <img src="assets/img/f08-habitacion.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Habitación con cocina integrada y viga coral">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f09-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con mesa redonda, espejo y aire acondicionado">
+          <img src="assets/img/f09-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con mesa redonda, espejo y aire acondicionado">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f10-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con mesa de vidrio, cortinas y cocina al fondo">
+          <img src="assets/img/f10-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con mesa de vidrio, cortinas y cocina al fondo">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f11-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con mural, cojines turquesa y barra de cocina">
+          <img src="assets/img/f11-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con mural, cojines turquesa y barra de cocina">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f12-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con mural, sofá modular y puerta al jardín">
+          <img src="assets/img/f12-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con mural, sofá modular y puerta al jardín">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f13-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con pared roja, estantería y ventanal al jardín">
+          <img src="assets/img/f13-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con pared roja, estantería y ventanal al jardín">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f14-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con sillones coral, pared roja y cocina al fondo">
+          <img src="assets/img/f14-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con sillones coral, pared roja y cocina al fondo">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f15-sala.webp" data-caption="Sala" aria-label="Ampliar imagen: Sala con ventanal al jardín y sillones">
+          <img src="assets/img/f15-sala.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Sala con ventanal al jardín y sillones">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f16-comedor.webp" data-caption="Comedor" aria-label="Ampliar imagen: Comedor con mesa redonda y cocina de madera">
+          <img src="assets/img/f16-comedor.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Comedor con mesa redonda y cocina de madera">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f17-comedor.webp" data-caption="Comedor" aria-label="Ampliar imagen: Comedor con estantería negra y pared roja">
+          <img src="assets/img/f17-comedor.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Comedor con estantería negra y pared roja">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f18-comedor.webp" data-caption="Comedor" aria-label="Ampliar imagen: Comedor con mesa de vidrio y cocina negra">
+          <img src="assets/img/f18-comedor.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Comedor con mesa de vidrio y cocina negra">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f19-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina con barra larga y detalles coral">
+          <img src="assets/img/f19-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina con barra larga y detalles coral">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f20-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina con barra, viga coral y TV">
+          <img src="assets/img/f20-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina con barra, viga coral y TV">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f21-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina de madera en U con microondas y horno">
+          <img src="assets/img/f21-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina de madera en U con microondas y horno">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f22-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina verde con barra y bancos coral">
+          <img src="assets/img/f22-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina verde con barra y bancos coral">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f23-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina verde con isla larga y bancos">
+          <img src="assets/img/f23-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina verde con isla larga y bancos">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f24-cocina.webp" data-caption="Cocina" aria-label="Ampliar imagen: Cocina verde con isla e ingreso">
+          <img src="assets/img/f24-cocina.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Cocina verde con isla e ingreso">
+        </button>
+        <button type="button" class="g-slide g-open" data-src="assets/img/f25-area-comun.webp" data-caption="Área común" aria-label="Ampliar imagen: Área común con barra, arcos de color y bancos">
+          <img src="assets/img/f25-area-comun.webp" width="1400" height="781" loading="lazy" decoding="async" alt="Área común con barra, arcos de color y bancos">
+        </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/habitacion-1.webp" data-caption="Habitación" aria-label="Ampliar imagen: Habitación">
           <img src="assets/img/habitacion-1.webp" width="848" height="1264" loading="lazy" decoding="async" alt="Render de habitación con ventanal y vista a la ciudad">
-          <span class="caption">Habitación</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-rooftop.webp" data-caption="Rooftop" aria-label="Ampliar imagen: Rooftop">
           <img src="assets/img/r-rooftop.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Rooftop con sofás, mesas y barra, con vista a las montañas de Tegucigalpa">
-          <span class="caption">Rooftop</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-juegos.webp" data-caption="Sala de juegos" aria-label="Ampliar imagen: Sala de juegos">
           <img src="assets/img/r-juegos.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Sala de juegos con billar, futbolín y ping pong frente al ventanal">
-          <span class="caption">Sala de juegos</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-biblioteca.webp" data-caption="Coworking y biblioteca" aria-label="Ampliar imagen: Coworking y biblioteca">
           <img src="assets/img/r-biblioteca.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Coworking con biblioteca de doble altura y vista panorámica a la ciudad">
-          <span class="caption">Coworking y biblioteca</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-terraza.webp" data-caption="Terraza" aria-label="Ampliar imagen: Terraza">
           <img src="assets/img/r-terraza.webp" width="1600" height="883" loading="lazy" decoding="async" alt="Terraza con barra y sala exterior al atardecer">
-          <span class="caption">Terraza</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-cocina.webp" data-caption="Cocina comunal" aria-label="Ampliar imagen: Cocina comunal">
           <img src="assets/img/r-cocina.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Cocina comunal con isla de terrazo, hornos y barra de café">
-          <span class="caption">Cocina comunal</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-podcast.webp" data-caption="Sala de podcast" aria-label="Ampliar imagen: Sala de podcast">
           <img src="assets/img/r-podcast.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Sala de podcast con micrófonos, butacas y ventanal a la ciudad">
-          <span class="caption">Sala de podcast</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-lounge-noche.webp" data-caption="Lounge y cafetería" aria-label="Ampliar imagen: Lounge y cafetería">
           <img src="assets/img/r-lounge-noche.webp" width="1600" height="893" loading="lazy" decoding="async" alt="Lounge y cafetería de noche con vista a las luces de la ciudad">
-          <span class="caption">Lounge y cafetería</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/r-coworking.webp" data-caption="Coworking y estudio" aria-label="Ampliar imagen: Coworking y estudio">
           <img src="assets/img/r-coworking.webp" width="1600" height="845" loading="lazy" decoding="async" alt="Coworking con escritorios frente a ventanales y vista a las montañas">
-          <span class="caption">Coworking y estudio</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/gym.webp" data-caption="Gimnasio" aria-label="Ampliar imagen: Gimnasio">
           <img src="assets/img/gym.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render del gimnasio">
-          <span class="caption">Gimnasio</span>
         </button>
         <button type="button" class="g-slide g-open" data-src="assets/img/verdes.webp" data-caption="Áreas verdes" aria-label="Ampliar imagen: Áreas verdes">
           <img src="assets/img/verdes.webp" width="1376" height="768" loading="lazy" decoding="async" alt="Render de las áreas verdes con jardines y vegetación">
-          <span class="caption">Áreas verdes</span>
         </button>
       </div>
     </div>
-    <button type="button" class="car-btn car-prev" aria-label="Foto anterior">‹</button>
-    <button type="button" class="car-btn car-next" aria-label="Foto siguiente">›</button>
+    <button type="button" class="car-btn car-prev" aria-label="Foto anterior"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
+    <button type="button" class="car-btn car-next" aria-label="Foto siguiente"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
   <p class="car-hint">Deslizá para ver más →</p>
 </section>
@@ -325,12 +389,12 @@
     <div class="units-head">
       <div class="kicker eyebrow">Distribuciones</div>
       <h2 class="h2" id="dist-h">Encontrá tu espacio</h2>
-      <p class="lead">Desde un apartaestudio hasta el coliving de 7 habitaciones — para vivir o invertir.</p>
+      <p class="lead">Apartaestudios y apartamentos en venta, y el coliving de 7 habitaciones en renta.</p>
     </div>
 
     <div class="units-grid">
       <article class="unit reveal">
-        <div class="unit__plan"><img src="assets/img/plan-mono.webp" width="900" height="1200" loading="lazy" decoding="async" alt="Plano de apartaestudio, de 23 a 33 m2"></div>
+        <div class="unit__plan"><img src="assets/img/plan-apt04-studio.webp" width="1200" height="675" loading="lazy" decoding="async" alt="Plano del apartaestudio: un ambiente con cama, sala, cocina y un baño"></div>
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">Apartaestudio</span><span class="unit__m2">23&ndash;33 m&sup2;</span></div>
           <div class="unit__spec">1 ambiente &middot; 1 ba&ntilde;o &middot; 1 parqueo</div>
@@ -339,7 +403,7 @@
         </div>
       </article>
       <article class="unit reveal d1">
-        <div class="unit__plan"><img src="assets/img/plan-2hab.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Plano de apartamento de 1 y 2 habitaciones, de 31 a 52 m2"></div>
+        <div class="unit__plan"><img src="assets/img/plan-apt06-2hab.webp" width="1200" height="675" loading="lazy" decoding="async" alt="Plano del apartamento de dos habitaciones, con dos baños, cocina, sala-comedor y balcón"></div>
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">1 y 2 habitaciones</span><span class="unit__m2">31&ndash;52 m&sup2;</span></div>
           <div class="unit__spec">1&ndash;2 ba&ntilde;os &middot; 1 parqueo</div>
@@ -348,17 +412,21 @@
         </div>
       </article>
       <article class="unit reveal d2">
-        <div class="unit__plan"><img src="assets/img/plan-coliving.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Plano del coliving de 6 a 7 habitaciones"></div>
+        <div class="unit__plan"><img src="assets/img/plan-apt09-coliving.webp" width="1200" height="771" loading="lazy" decoding="async" alt="Plano del coliving: habitaciones privadas alrededor de sala, comedor y cocina compartidas"></div>
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">Coliving</span><span class="unit__m2">157&ndash;179 m&sup2;</span></div>
           <div class="unit__spec">6 a 7 habitaciones &middot; 5 a 7 ba&ntilde;os</div>
-          <div class="unit__price">Modalidad renta &middot; <b>Consult&aacute;</b></div>
+          <div class="unit__price">Renta &middot; <b>Consult&aacute;</b></div>
           <a href="#hero-form" class="btn btn--ink unit__cta" data-cta="unit-coliving">M&aacute;s info</a>
         </div>
       </article>
     </div>
 
     <p class="units-note"><b>Para venta disponemos de apartamentos con acabados y en obra gris.</b> Reserv&aacute; con $3,000 y 10% de prima. Renta: consult&aacute;. &Aacute;reas y disponibilidad sujetas a confirmaci&oacute;n.</p>
+    <div class="units-cta">
+      <p>Ya viste las áreas y los precios. El siguiente paso es conocerlo en persona.</p>
+      <a href="#hero-form" class="btn btn--lg btn--lime-hover" data-visita>Agendá tu visita <span class="arrow"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M12 6l6 6-6 6"/></svg></span></a>
+    </div>
   </div>
 </section>
 
@@ -372,7 +440,7 @@
       <h2 class="h2" id="why-h" style="font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:8px">Uno y muchos a la vez</h2>
       <p class="lead" style="margin-bottom:28px;max-width:480px;font-size:14.5px;line-height:1.6">Cada persona es un pétalo; juntos formamos la flor. No se trata de vivir cerca, sino de vivir conectado.</p>
       <div class="why-grid">
-        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Frente a la UNAH</div><div class="d">La mejor ubicación del Boulevard Suyapa. Todo a un paso, sin transporte.</div></div></div>
+        <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Zona de alta plusvalía</div><div class="d">Sobre el Boulevard Suyapa, uno de los corredores de mayor movimiento de Tegucigalpa.</div></div></div>
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Comunidad real</div><div class="d">Coliving de verdad, no roommates al azar. Tu espacio, tu gente.</div></div></div>
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Todo a mano</div><div class="d">Gimnasio, rooftop, coworking y más — más comercios y cafés en la planta baja.</div></div></div>
         <div class="why-item"><span class="petal"><i></i></span><div><div class="t">Enfoque eco</div><div class="d">Paneles solares y áreas verdes. Menos consumo, menos gasto mensual.</div></div></div>
@@ -387,10 +455,6 @@
     <div>
       <div class="kicker eyebrow">Quiénes somos</div>
       <h2 class="h2" id="nos-h" style="max-width:460px;line-height:1.12">Nuestros<br>proyectos</h2>
-    </div>
-    <div class="dev-by">
-      <span class="dev-by__label">Desarrollado por</span>
-      <img src="assets/img/logo-eco-proyectos.png" width="97" height="120" loading="lazy" decoding="async" alt="Eco Proyectos S.A. de C.V.">
     </div>
   </div>
   <div class="proj-grid">
@@ -428,10 +492,12 @@
 <section class="section loc" id="ubicacion" aria-labelledby="loc-h">
   <div class="col-text reveal">
     <h2 class="h2" id="loc-h" style="margin-bottom:14px">Frente a la UNAH.<br>Literalmente.</h2>
-    <p class="lead" style="font-size:15px;margin-bottom:24px;max-width:440px">Boulevard Suyapa, Tegucigalpa. Todo a un paso, sin transporte: cruzás la calle y llegaste.</p>
+    <p class="lead" style="font-size:15px;margin-bottom:10px;max-width:440px">Boulevard Suyapa, frente a la UNAH, Tegucigalpa. Una zona de alta plusvalía, con la vida de la ciudad al lado.</p>
+    <p class="loc-dir">Ecoliving Suyapa · Boulevard Suyapa, frente a la UNAH<br>Tegucigalpa, Honduras</p>
     <div class="dist-list">
       <div class="dist"><span class="place">UNAH — entrada principal</span><span class="time">Cruzando la calle</span></div>
       <div class="dist"><span class="place">Boulevard Suyapa</span><span class="time">Estás en él</span></div>
+      <div class="dist"><span class="place">Conciertos y eventos</span><span class="time">En la UNAH</span></div>
       <div class="dist"><span class="place">Centros comerciales</span><span class="time">5 min</span></div>
       <div class="dist"><span class="place">Hospitales y cl&iacute;nicas de la zona</span><span class="time">A pocos minutos</span></div>
     </div>
@@ -462,7 +528,7 @@
         <div class="tip">ecoliving suyapa</div>
         <div class="drop"><i></i></div>
       </div>
-      <div class="map-cta">Ver en Google Maps <span class="up">↗</span></div>
+      <div class="map-cta">Ver la zona en Google Maps <span class="up"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16 16 8M9 8h7v7"/></svg></span></div>
     </a>
   </div>
 </section>
@@ -516,8 +582,8 @@
     <div class="hb">
       <h2 class="hb__title">Hablemos</h2>
       <div class="hb__pills">
-        <a class="hb__pill hb__pill--a" href="#hero-form">Reservá tu lugar</a>
-        <span class="hb__pill hb__pill--b">Preventa abierta</span>
+        <a class="hb__pill hb__pill--a" href="#hero-form" data-visita>Agendá tu visita</a>
+        <a class="hb__pill hb__pill--b" href="#hero-form">Recibí precios y planos</a>
         <a class="hb__pill hb__pill--c" href="https://wa.me/50494601511?text=Hola%2C%20quiero%20info%20de%20ecoliving%20Suyapa" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
@@ -537,7 +603,7 @@
       <div class="fb-col fb-col--accent fb-contact">
         <a href="https://wa.me/50494601511?text=Hola%2C%20quiero%20info%20de%20ecoliving%20Suyapa" target="_blank" rel="noopener"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></span><span>+504 9460-1511</span></a>
         <a href="mailto:info@suyapaecoliving.hn"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 6 9-6"/></svg></span><span>info@suyapaecoliving.hn</span></a>
-        <span class="fb-loc"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Boulevard Suyapa · Tegucigalpa</span></span>
+        <span class="fb-loc"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><span>Boulevard Suyapa, frente a la UNAH · Tegucigalpa, Honduras</span></span>
       </div>
       <div class="fb-col fb-col--accent fb-tag">
         <span>Habitá</span>
@@ -558,13 +624,12 @@
 
 <!-- ===================== LIGHTBOX ===================== -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de imágenes" hidden>
-  <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
-  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Imagen anterior">‹</button>
+  <button type="button" class="lb-close" id="lbClose" aria-label="Cerrar"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Imagen anterior"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
   <img class="lb-img" id="lbImg" src="" alt="">
-  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Imagen siguiente">›</button>
-  <div class="lb-caption" id="lbCaption"></div>
+  <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Imagen siguiente"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
 </div>
 
-<script src="main.js?v=5"></script>
+<script src="main.js?v=9"></script>
 </body>
 </html>
