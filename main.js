@@ -225,7 +225,7 @@
      botones caen a su href normal (bajan al formulario), así que nunca
      queda un botón muerto.
      ========================================================= */
-  var CALENDLY_URL = 'PENDIENTE-URL-DE-CALENDLY';
+  var CALENDLY_URL = 'https://calendly.com/suyapaecoliving-info/visita';
   var WEB3FORMS_KEY = '43e53ba9-feaf-4bb1-a056-d0c3a27e74a8';
   var calendlyListo = false;
 
