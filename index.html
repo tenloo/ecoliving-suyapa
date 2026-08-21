@@ -7,12 +7,20 @@
 <meta name="description" content="Apartaestudios, apartamentos de 1 y 2 habitaciones y coliving frente a la UNAH, Boulevard Suyapa. Gimnasio, rooftop, coworking y más. Preventa abierta — agendá tu visita.">
 <meta name="theme-color" content="#123329">
 
-<!-- Open Graph -->
+<!-- Open Graph — es la tarjeta que sale al compartir el enlace por WhatsApp,
+     Facebook o LinkedIn. La imagen va en JPG y con URL absoluta a propósito:
+     WhatsApp no renderiza WebP en las vistas previas y descarta las rutas
+     relativas. 1200x630 es el tamaño que pide Facebook para la tarjeta grande. -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.ecolivingsuyapa.com/">
 <meta property="og:title" content="ecoliving suyapa · Vivir simple, conectado y eco">
 <meta property="og:description" content="Coliving frente a la UNAH, Boulevard Suyapa. Todo incluido en una sola cuota. Preventa abierta.">
-<meta property="og:image" content="assets/img/portada.webp">
+<meta property="og:image" content="https://www.ecolivingsuyapa.com/assets/img/og-portada.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Torre ecoliving suyapa sobre el Boulevard Suyapa, con la Basílica de Suyapa al fondo">
 <meta property="og:locale" content="es_HN">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/logo-emerald.svg" type="image/svg+xml">
 <!-- Sin <link rel=preload> para la portada: con tres recortes por media query,
