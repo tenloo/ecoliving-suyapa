@@ -128,12 +128,12 @@ input,select,textarea{font-family:inherit}
 }
 .hero__media{position:absolute;inset:0}
 .hero__media picture{display:block;width:100%;height:100%}
-/* Medido sobre la portada: escalada al ancho del hero mide 960px de alto y el
-   edificio va de y=91 (corona) a y=732 (línea de suelo), o sea 641px. Por eso
-   el hero pasó de 560 a 660px de alto: es lo mínimo para que la torre entre
-   entera, de la corona al zócalo comercial. El anclaje en 27% deja la corona
-   con aire arriba y la acera visible abajo. */
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 27%}
+/* En escritorio va la portada ancha (v5): la torre queda al 58% del encuadre,
+   o sea a la derecha del formulario, que termina en los 410px del hero. El
+   anclaje horizontal en 15% empuja la torre hacia el centro de la franja que
+   queda libre; en pantallas de 1320px o más ya casi no sobra imagen y el
+   recorte deja de tener efecto. */
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:15% 50%}
 .hero__scrim{
   position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(17,51,43,0) 50%,rgba(17,51,43,.60) 100%);
@@ -303,10 +303,16 @@ section[id]{scroll-margin-top:84px}
    ========================================================= */
 /* wide hero image of the gallery */
 .g-wide{position:relative;height:480px;border-radius:var(--radius-md);overflow:hidden}
-/* La foto del edificio se recorta 217px en vertical dentro de esta banda.
-   Anclada arriba para no cortar la corona de la torre, que es donde va el rótulo. */
-.g-wide .g-open img{object-position:50% 12%}
-@media (max-width:560px){.g-wide{height:300px}}
+/* La aérea (portada 04) se recorta 218px en vertical dentro de esta banda de
+   480px. Anclada al 40% la torre entra entera: 18px de cielo sobre la corona y
+   15px de calle bajo el zócalo. */
+.g-wide .g-open img{object-position:50% 40%}
+@media (max-width:560px){
+  .g-wide{height:300px}
+  /* Aquí la banda es más angosta que la foto y el recorte pasa a ser horizontal:
+     el 28% deja la torre en el centro en vez de correrla a la izquierda. */
+  .g-wide .g-open img{object-position:28% 50%}
+}
 
 /* clickable image frame (opens lightbox) */
 .g-open{
@@ -701,7 +707,7 @@ a.hb__pill:hover{animation-play-state:paused;transform:translateY(-4px) scale(1.
   /* La variable va en .hero-wrap porque el sello cuelga de ahí, no de .hero. */
   .hero-wrap{--foto:clamp(390px,56vw,560px)}
   .hero__media{position:relative;height:var(--foto)}
-  .hero__media img{object-position:50% 30%}
+  .hero__media img{object-position:50% 42%}
   /* El degradado protege el pie de la foto, que es donde ahora vive el titular. */
   .hero__scrim{background:linear-gradient(180deg,
     rgba(17,51,43,0) calc(var(--foto)*.20),

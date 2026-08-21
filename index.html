@@ -15,11 +15,14 @@
 <meta property="og:locale" content="es_HN">
 
 <link rel="icon" href="assets/logo-emerald.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/img/portada-v2.webp" fetchpriority="high">
+<!-- Sin <link rel=preload> para la portada: con tres recortes por media query,
+     el escáner de precarga de Chrome se traía además el src de respaldo y bajaba
+     dos imágenes. El fetchpriority="high" del <img> ya arranca la descarga a los
+     ~12 ms, que es lo mismo que daba el preload. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=39">
+<link rel="stylesheet" href="styles.css?v=42">
 
 <!-- ===================== ANALYTICS / RETARGETING =====================
      Reemplazá los IDs placeholder por los reales antes de publicar.
@@ -84,8 +87,11 @@
   <section class="hero" id="hero" aria-label="Presentación">
     <div class="hero__media">
       <picture>
-        <source media="(max-width:560px)" srcset="assets/img/portada-v2-mobile.webp">
-        <img src="assets/img/portada-v2.webp" width="2000" height="1548" fetchpriority="high" decoding="async"
+        <!-- Escritorio: la portada ancha (05). La torre cae a la derecha del formulario.
+             Tablet y móvil: la portada 04 recortada para que la torre quede centrada. -->
+        <source media="(min-width:981px)" srcset="assets/img/portada-v5.webp">
+        <source media="(max-width:560px)" srcset="assets/img/portada-v4-mobile.webp">
+        <img src="assets/img/portada-v4-tablet.webp" width="1500" height="886" fetchpriority="high" decoding="async"
              alt="Torre ecoliving suyapa con su marca en la fachada, vista desde el bulevar">
       </picture>
     </div>
@@ -254,8 +260,8 @@
     <h2 class="h2" id="gal-h" style="max-width:520px">Conocé las <br>instalaciones</h2>
   </div>
   <div class="g-wide reveal">
-    <button type="button" class="g-open" data-src="assets/img/fachada-v2.webp" data-caption="El edificio" aria-label="Ampliar imagen: El edificio">
-      <img src="assets/img/fachada-v2.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Torre ecoliving suyapa vista desde el bulevar, con su marca en la fachada">
+    <button type="button" class="g-open" data-src="assets/img/fachada-v4.webp" data-caption="El edificio" aria-label="Ampliar imagen: El edificio">
+      <img src="assets/img/fachada-v4.webp" width="2000" height="1125" loading="lazy" decoding="async" alt="Torre ecoliving suyapa vista desde el bulevar, con su marca en la fachada">
     </button>
   </div>
   <div class="carousel reveal d1">
@@ -412,7 +418,7 @@
         </div>
       </article>
       <article class="unit reveal d2">
-        <div class="unit__plan"><img src="assets/img/plan-apt09-coliving.webp" width="1200" height="771" loading="lazy" decoding="async" alt="Plano del coliving: habitaciones privadas alrededor de sala, comedor y cocina compartidas"></div>
+        <div class="unit__plan"><img src="assets/img/plan-coliving-7hab.webp" width="1893" height="1193" loading="lazy" decoding="async" alt="Plano del coliving: siete habitaciones privadas con baño alrededor de la sala, el comedor y la cocina compartidas"></div>
         <div class="unit__body">
           <div class="unit__row"><span class="unit__name">Coliving</span><span class="unit__m2">157&ndash;179 m&sup2;</span></div>
           <div class="unit__spec">6 a 7 habitaciones &middot; 5 a 7 ba&ntilde;os</div>
