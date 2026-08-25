@@ -87,6 +87,11 @@
        así que el envío lo hace un servicio externo. Mientras la clave siga
        siendo el marcador, el lead NO sale a ningún lado. */
     if (WEB3FORMS_KEY.indexOf('PENDIENTE') !== 0) {
+      /* OJO con el honeypot: en una casilla sin atributo value, .value siempre
+         devuelve 'on', marcada o no — ese es el valor de envío del HTML, no el
+         estado. Mandarlo tal cual hacía que Web3Forms respondiera 400 "Honeypot
+         Error" y descartara TODOS los leads. Lo que importa es .checked. */
+      var esRobot = !!(form.botcheck && form.botcheck.checked);
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -94,13 +99,25 @@
           access_key: WEB3FORMS_KEY,
           subject: 'Nuevo lead — ecoliving suyapa',
           from_name: 'Sitio ecoliving suyapa',
-          botcheck: form.botcheck ? form.botcheck.value : '',
+          botcheck: esRobot ? 'true' : '',
           nombre: data.nombre,
           telefono: data.telefono,
           correo: data.correo,
           interes: data.interes
         })
-      }).catch(function () { /* el usuario ya vio la confirmación; no se le muestra el fallo */ });
+      }).then(function (r) {
+        /* Un 400 resuelve la promesa: sin este chequeo el fallo es invisible.
+           Así fue como el formulario estuvo semanas sin entregar un solo lead. */
+        return r.json().catch(function () { return {}; });
+      }).then(function (j) {
+        if (!j || j.success !== true) {
+          // eslint-disable-next-line no-console
+          console.error('[ecoliving] El lead NO se entregó.', j && j.message, data);
+        }
+      }).catch(function (err) {
+        // eslint-disable-next-line no-console
+        console.error('[ecoliving] El lead NO se entregó (fallo de red).', err, data);
+      });
     } else {
       // eslint-disable-next-line no-console
       console.warn('[ecoliving] Falta la clave de Web3Forms: este lead no se envió a nadie.', data);
