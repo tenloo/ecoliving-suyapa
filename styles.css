@@ -410,10 +410,10 @@ section[id]{scroll-margin-top:84px}
 .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
 .why-item{display:flex;gap:12px;align-items:flex-start}
 .petal{
-  flex:none;width:34px;height:34px;background:var(--mint);border-radius:50% 50% 50% 0;
-  transform:rotate(45deg);display:flex;align-items:center;justify-content:center;
+  flex:none;width:40px;height:40px;background:var(--mint);border-radius:11px;
+  display:flex;align-items:center;justify-content:center;color:var(--green);
 }
-.petal i{transform:rotate(-45deg);width:10px;height:10px;background:var(--green);border-radius:50% 50% 50% 0;display:block}
+.petal .ico{width:20px;height:20px}
 .why-item .t{font-weight:800;font-size:15px;margin-bottom:4px}
 .why-item .d{font-size:13px;line-height:1.55;color:var(--muted-soft)}
 
