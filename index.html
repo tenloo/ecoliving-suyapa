@@ -32,10 +32,10 @@
      el escáner de precarga de Chrome se traía además el src de respaldo y bajaba
      dos imágenes. El fetchpriority="high" del <img> ya arranca la descarga a los
      ~12 ms, que es lo mismo que daba el preload. -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=44">
+<!-- La fuente ahora es propia (ver @font-face en styles.css). Se precarga
+     para que empiece a bajar junto con el CSS y no después de leerlo. -->
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css?v=45">
 
 <!-- ===================== DATOS ESTRUCTURADOS (JSON-LD) =====================
      Le describe el proyecto a Google en su propio formato, en vez de dejar que
@@ -174,15 +174,43 @@
   gtag('config', 'G-WWTNYSXD2D');
 </script>
 
-<!-- Meta (Facebook/Instagram) Pixel -->
+<!-- Meta (Facebook/Instagram) Pixel.
+     Dos cambios respecto de la versión anterior:
+
+     1. Sin ID real no se baja nada. Antes, con el ID de relleno, igual se
+        descargaban 107 KB de fbevents.js en cada visita para no medir nada.
+        Mismo patrón que main.js usa para Web3Forms y Calendly.
+     2. Con ID real, el stub de fbq se define de inmediato (así los eventos
+        se encolan desde el primer momento) pero el script pesado se baja
+        recién al terminar de cargar la página, fuera del camino crítico.
+
+     Para activarlo: reemplazar PIXEL_ID por los 15 dígitos reales. -->
 <script>
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'XXXXXXXXXXXXXXX'); /* TODO: ID del Meta Pixel */
-  fbq('track', 'PageView');
+  (function () {
+    var PIXEL_ID = 'XXXXXXXXXXXXXXX'; /* TODO: ID del Meta Pixel */
+    if (PIXEL_ID.charAt(0) === 'X') return;
+
+    window.fbq = window.fbq || function () {
+      (window.fbq.callMethod ? window.fbq.callMethod.apply(window.fbq, arguments)
+                             : window.fbq.queue.push(arguments));
+    };
+    if (!window._fbq) window._fbq = window.fbq;
+    window.fbq.push = window.fbq;
+    window.fbq.loaded = true;
+    window.fbq.version = '2.0';
+    window.fbq.queue = window.fbq.queue || [];
+    window.fbq('init', PIXEL_ID);
+    window.fbq('track', 'PageView');
+
+    var bajar = function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+    };
+    if (document.readyState === 'complete') bajar();
+    else window.addEventListener('load', bajar);
+  })();
 </script>
 <!-- ===================== FIN ANALYTICS ===================== -->
 </head>

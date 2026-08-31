@@ -3,6 +3,29 @@
    Design system extracted from the handoff prototype (v4)
    ========================================================= */
 
+/* Plus Jakarta Sans auto-hospedada. Antes venía de fonts.googleapis.com,
+   que bloqueaba el render 952 ms: el navegador tenía que resolver DNS,
+   negociar TLS y bajar un CSS de un tercero antes de pintar nada.
+   Ahora sale del mismo dominio, en paralelo con el resto.
+
+   Es el archivo variable del subconjunto "latin" (27 KB, pesos 300 a 800
+   en un solo archivo). Alcanza para todo el sitio: se comprobó que ningún
+   carácter del contenido queda fuera de ese rango — el español entero
+   (á é í ó ú ñ ü ¿ ¡), el m² y los guiones largos están dentro.
+
+   Las dos excepciones son → y ★, que tampoco están en ningún subconjunto
+   que Google sirva para esta fuente: ya se dibujaban con la del sistema.
+
+   Plus Jakarta Sans es OFL 1.1, que permite auto-hospedarla. */
+@font-face{
+  font-family:'Plus Jakarta Sans';
+  font-style:normal;
+  font-weight:300 800;
+  font-display:swap;
+  src:url(assets/fonts/plus-jakarta-sans-latin-var.woff2) format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 :root{
   --bg:#F3F6F2;
   --ink:#123329;
