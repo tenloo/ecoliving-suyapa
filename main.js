@@ -131,7 +131,7 @@
   /* ---------- FAQ accordion ---------- */
   var faqData = [
     { q: '¿Dónde queda el proyecto?', a: 'En la zona de Suyapa, Boulevard Suyapa, Tegucigalpa — a pocos pasos de la UNAH. Agendá una visita y coordinamos el punto exacto.' },
-    { q: '¿Cuánto cuestan los apartamentos?', a: 'Tenemos apartaestudios (23–33 m²) y apartamentos de 1 y 2 habitaciones (31–52 m²) para venta, con unidades de acabados y en obra gris. Dejanos tus datos en el formulario y te enviamos precios y planes de pago vigentes. El precio de renta lo confirmamos según disponibilidad.' },
+    { q: '¿Cuánto cuestan los apartamentos?', a: 'Un apartaestudio (23–33 m²) parte desde unos $71,610 y los apartamentos de 1 y 2 habitaciones (31–52 m²) desde unos $103,200. Para venta tenemos unidades con acabados y en obra gris. Reservás con $3,000 y una prima del 10%. El precio de renta lo confirmamos según disponibilidad.' },
     { q: '¿Cuándo entregan el proyecto?', a: 'El proyecto está en preventa: inicia en septiembre y la entrega estimada es en diciembre de 2026. Dejanos tus datos y te compartimos el calendario y los planes de pago vigentes.' },
     { q: '¿El parqueo está incluido?', a: 'Sí. Cada apartamento incluye un parqueo. También se podrán alquilar parqueos adicionales.' },
     { q: '¿Puedo comprar para rentar?', a: 'Sí. Es una zona de alta plusvalía y con demanda constante de arrendamiento, ideal para comprar y rentar. Te preparamos la información para inversionistas.' },
