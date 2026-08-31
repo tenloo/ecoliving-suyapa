@@ -1,0 +1,7 @@
+# ecoliving suyapa — www.ecolivingsuyapa.com
+# Todo el sitio es público: no hay áreas privadas que ocultar.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ecolivingsuyapa.com/sitemap.xml

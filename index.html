@@ -7,6 +7,11 @@
 <meta name="description" content="Apartaestudios, apartamentos de 1 y 2 habitaciones y coliving frente a la UNAH, Boulevard Suyapa. Gimnasio, rooftop, coworking y más. Preventa abierta — agendá tu visita.">
 <meta name="theme-color" content="#123329">
 
+<!-- El sitio responde en cuatro direcciones (con y sin www, más suyapaecoliving.com).
+     Sin este canonical, Google puede tratarlas como páginas distintas y repartir
+     entre ellas la autoridad que debería concentrarse en una sola. -->
+<link rel="canonical" href="https://www.ecolivingsuyapa.com/">
+
 <!-- Open Graph — es la tarjeta que sale al compartir el enlace por WhatsApp,
      Facebook o LinkedIn. La imagen va en JPG y con URL absoluta a propósito:
      WhatsApp no renderiza WebP en las vistas previas y descarta las rutas
@@ -31,6 +36,130 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=44">
+
+<!-- ===================== DATOS ESTRUCTURADOS (JSON-LD) =====================
+     Le describe el proyecto a Google en su propio formato, en vez de dejar que
+     lo deduzca del texto. Habilita resultados enriquecidos y hace al proyecto
+     elegible para el panel lateral de Google.
+
+     Regla al editarlo: acá solo van datos verificables que ya están en la
+     página. Si un dato cambia arriba (precio, área, amenidad, horario), hay
+     que cambiarlo también acá — Google penaliza el marcado que contradice lo
+     que el visitante ve.
+
+     PENDIENTE: faltan las coordenadas geo exactas del edificio. No se inventan;
+     salen del Perfil de Negocio de Google cuando Ecoliving lo cree y verifique. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ApartmentComplex",
+      "@id": "https://www.ecolivingsuyapa.com/#proyecto",
+      "name": "ecoliving suyapa",
+      "url": "https://www.ecolivingsuyapa.com/",
+      "description": "Apartaestudios, apartamentos de 1 y 2 habitaciones y coliving frente a la UNAH, sobre el Boulevard Suyapa en Tegucigalpa. Gimnasio, rooftop, coworking y áreas comunes incluidas. Preventa abierta.",
+      "image": "https://www.ecolivingsuyapa.com/assets/img/og-portada.jpg",
+      "telephone": "+504 9460-1511",
+      "email": "info@suyapaecoliving.hn",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Boulevard Suyapa, frente a la UNAH",
+        "addressLocality": "Tegucigalpa",
+        "addressRegion": "Francisco Morazán",
+        "addressCountry": "HN"
+      },
+      "hasMap": "https://www.google.com/maps?q=Universidad+Nacional+Aut%C3%B3noma+de+Honduras,+Boulevard+Suyapa,+Tegucigalpa",
+      "numberOfAccommodationUnits": {
+        "@type": "QuantitativeValue",
+        "minValue": 3,
+        "description": "Tres tipos de unidad: apartaestudio, apartamento de 1 y 2 habitaciones, y coliving."
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Gimnasio", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Rooftop", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Coworking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Área de estudio", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Área de podcast", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cubículos VIP", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Área de juegos", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Áreas de convivencia", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Áreas de entretenimiento", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Terrazas y balcones", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Áreas de barbacoa", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Lavandería", "value": true }
+      ],
+      "containsPlace": [
+        {
+          "@type": "Apartment",
+          "name": "Apartaestudio",
+          "numberOfRooms": 1,
+          "numberOfBathroomsTotal": 1,
+          "floorSize": { "@type": "QuantitativeValue", "minValue": 23.1, "maxValue": 33.15, "unitCode": "MTK" }
+        },
+        {
+          "@type": "Apartment",
+          "name": "Apartamento de 1 y 2 habitaciones",
+          "numberOfRooms": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2 },
+          "numberOfBathroomsTotal": 2,
+          "floorSize": { "@type": "QuantitativeValue", "minValue": 34.4, "maxValue": 52, "unitCode": "MTK" }
+        },
+        {
+          "@type": "Apartment",
+          "name": "Coliving",
+          "numberOfRooms": { "@type": "QuantitativeValue", "minValue": 6, "maxValue": 7 },
+          "numberOfBathroomsTotal": 7,
+          "floorSize": { "@type": "QuantitativeValue", "minValue": 157, "maxValue": 179, "unitCode": "MTK" }
+        }
+      ]
+    },
+    {
+      "@type": "RealEstateAgent",
+      "@id": "https://www.ecolivingsuyapa.com/#ventas",
+      "name": "Sala de ventas ecoliving suyapa",
+      "url": "https://www.ecolivingsuyapa.com/",
+      "image": "https://www.ecolivingsuyapa.com/assets/img/og-portada.jpg",
+      "telephone": "+504 9460-1511",
+      "email": "info@suyapaecoliving.hn",
+      "priceRange": "$$",
+      "address": { "@id": "https://www.ecolivingsuyapa.com/#proyecto" },
+      "areaServed": { "@type": "City", "name": "Tegucigalpa" },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "12:00"
+        }
+      ],
+      "makesOffer": [
+        {
+          "@type": "AggregateOffer",
+          "name": "Apartaestudio en venta — ecoliving suyapa",
+          "priceCurrency": "USD",
+          "lowPrice": "71610",
+          "availability": "https://schema.org/PreOrder",
+          "itemOffered": { "@type": "Apartment", "name": "Apartaestudio" }
+        },
+        {
+          "@type": "AggregateOffer",
+          "name": "Apartamento de 1 y 2 habitaciones en venta — ecoliving suyapa",
+          "priceCurrency": "USD",
+          "lowPrice": "103200",
+          "availability": "https://schema.org/PreOrder",
+          "itemOffered": { "@type": "Apartment", "name": "Apartamento de 1 y 2 habitaciones" }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- ===================== ANALYTICS / RETARGETING =====================
      Reemplazá los IDs placeholder por los reales antes de publicar.

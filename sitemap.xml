@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  El sitio es hoy una sola página con anclas internas (#espacios, #ubicacion...).
+  Las anclas NO son URLs distintas para Google: listarlas acá no serviría de nada.
+  Cuando la Fase 2 separe las secciones en URLs reales (/apartamentos, /coliving,
+  /ubicacion, /invertir), cada una se agrega como su propio <url>.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.ecolivingsuyapa.com/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
